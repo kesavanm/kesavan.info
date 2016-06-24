@@ -1,0 +1,74 @@
+/* 
+This file is released to the public domain.
+Richard Stallman - http://www.stallman.org 
+*/
+
+
+body {
+  color: #000000;
+  background-color: #FFFFFF;
+  margin: 0px 20px 0px 20px;
+}
+
+
+/* urgent action items*/
+.column1 {
+   width: 61%;
+   float: left;
+}
+
+
+/* long term action items */
+.column2 {
+  width: 34%;
+  float: left;
+  border-left: solid 1px;
+  border-right: solid 1px;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 10px 0px 10px;
+}
+
+
+/* rest */
+.rest {
+  width: 100%;
+  float: left;
+}
+
+
+:link {
+	color: #1F00FF
+}
+
+:visited {
+	color: #9900DD
+}
+
+/*
+This causes the entire page to be red when you click anywhere so I
+do not want it.  Not sure why we had it to begin with.
+07/26/2010 jcv
+:active {
+	color: #FF0000
+}
+*/
+
+div.c3 {
+	margin-left: 2em
+}
+
+div.c2 {
+	text-align: center
+}
+
+h3.c1 {
+	text-align: center
+}
+
+.titlelink {
+	color: #000000
+}
+
+.fullwide {
+	width: 900px;
+}
