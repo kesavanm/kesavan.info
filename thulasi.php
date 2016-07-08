@@ -28,15 +28,6 @@ include('head.php');
 
 <h2> Blessed with a baby girl on 02/02/2016 - துளசி கேசவன்     Thulasi Kesavan </h2>
 <div>
-
-<!-- 
-<ul class="first">
-	<li><img width='300p' src='images/photo315817020269635620.jpg' > </li>
-	<li><img width='300p' src='images/photo315817020269635621.jpg' > </li>
-</ul>
-
--->
-
 	<img width='300p' src='images/photo315817020269635620.jpg' >
 	<img width='300p' src='images/photo315817020269635621.jpg' >
 
@@ -46,13 +37,12 @@ include('head.php');
 
 
 
-<hr>
+	<hr>
+	<!-- Video -->
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/5SC_RJgHA1o" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5SC_RJgHA1o" frameborder="0" allowfullscreen></iframe>
 
-
-<hr>
-
+	<hr>
 
 	<style type="text/css"> 
 	.flickr_badge_image {margin:0px;display:inline;}
@@ -61,15 +51,7 @@ include('head.php');
 	</style>
 
 	<div id="flickr_badge_wrapper">     
-
-<?php 
-/* 		<script 
-			type="text/javascript" 
-			src="http://www.flickr.com/badge_code_v2.gne?count=10&display=latest&size=m&layout=x&source=user_set&set=72157665209061676">
-		</script>
- */
-echo gen_badges();
-?>
+		<?php 	echo gen_badges();	?>
 	</div>
 
 </div>
@@ -80,27 +62,54 @@ echo gen_badges();
 
 <?
 
-function gen_badges(){
+	function gen_badges(){
+		$albums = array( 72157665209061676 , 72157666096112713,72157667449566700,
+			72157670491224625,	#Thulasi-Peacock
+			72157670115825102 ,	#Thulasi | Shopping
+		);
+		rsort($albums);
+		foreach($albums as $set){
 
-	$albums = [72157665209061676 , 72157666096112713,72157667449566700];
-	rsort($albums);
-	foreach($albums as $set)
-		$script .= "<script type='text/javascript' src='http://www.flickr.com/badge_code_v2.gne?".
-			"count=10&display=latest&size=m&layout=x&source=user_set&set=$set'></script>";
-	return $script;
-}
+			//flickr.photosets.getInfo
+			// TODO OPEN KEY ISSUE 
+			$api_url	= "https://api.flickr.com/services/rest/?" ;
+			$api_method 	= "method=flickr.photosets.getInfo&" ;
+			$api_key 	= 'api_key=f3637beb8d63d1f84b7221a55f77f6b8&';
+			$api_userid	= "user_id=29018477@N00&";
+			$set_info = file_get_contents_curl($api_url.$api_method.$api_key."photoset_id=$set&".$api_userid."&format=php_serial");
+			$set_info = unserialize($set_info);
+			$title = $set_info['photoset']['title']['_content'] ;
+			$date = date_create();
+			date_timestamp_set($date,$set_info['photoset']['date_create']);
+
+			$script .= "<hr><p><b>$title</b> on ".date_format($date,'Y-m-d')."\n";
+			$script .= "<script type='text/javascript' src='http://www.flickr.com/badge_code_v2.gne?".
+				"count=10&display=latest&size=m&layout=x&source=user_set&set=$set'></script>";
+		}
+		return $script;
+	}
 
 
-
+	function file_get_contents_curl($url) {
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_AUTOREFERER, 1);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36');
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		$data = curl_exec($ch);
+		$retcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		curl_close($ch);
+		if ($retcode == 200) {
+			return $data;
+		} else {
+			return null;
+		}
+	}	
 
 include('tail.php');
 ?>
-
-
-
-
-
-
 
 <script>
 

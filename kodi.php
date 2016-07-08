@@ -51,7 +51,7 @@ pre {
 	"Genesis"		=> "Video ### Fusion Repo    ### Was one of the best video addon.<b>Library </b>Integration.Discontinued :( ### https://twitter.com/og_s7eele",
 	"Cartoon HD"		=> "Video ### xUnityTalk Repo### One of Best video addons for <b>Kids</b>. I enjoyed a lot on Disney and Barbies###http://dlcartoonhd.com/mobile/ ",
 	"Cartoon Extra"		=> "Video ### xUnityTalk Repo### Another from the Cartoon HD, but not only limited for cartoons but for all ages.###http://dlcartoonhd.com/mobile/ ",
-	"Exodus"		=> "Video ### Fusion Repo    ### Top Rated 2016 Video Addon from Lambda, creator of Genesis ### " ,
+	"Exodus*"		=> "Video ### Fusion Repo    ###<strong>Top Rated 2016 Video Addon</strong> from Lambda, creator of Genesis ### " ,
 	"URLResolver"		=> "Video ### TV Addons Repo    ### Resolve common video host URL's to be playable in XBMC/Kodi ### ",
 
 	#Skins
