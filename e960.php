@@ -51,7 +51,7 @@ $apps = array (
 "Greenify(Xposed)"=> "Rooting###NotSure### identify and put the misbehaving apps into hibernation when you are not using them, to stop them from lagging your device and leeching the battery, in an unique way!" ,
 "Stellarium Mobile Sky Map"=> "Science/Education###Proprietary###A fully-featured planetarium for your phone. It shows a realistic and accurate night sky map.***com.noctuasoftware.stellarium-1.apk",
 "Star Chart Infinite" => "Science/Education###Proprietary###Provides a magical sky/star gazing experience like no other.map.***com.escapistgames.starchartgoogleeducation_3.0.08.apk",
-
+"XuiMod (Xposed)" => "Rooting###Open###A Small Collection of Unique Features Ported From Other Roms.Customizable StatusBar Clock",
 #"XMultiWindow (Xposed)*" =>"Rooting###Open/MIT### Port omni's splite view to other ROM's enjoy multi-window feature",
 #"TamilVisai"		=>"Basic###Open/GPLv3###ThamiZha! Phonetic keyboard with English keys is back.Tamil99 layout added.",
 #"Ezhuthani"		=>"Basic###Prop###Tamil Keyboard - support Tamil99 Keyboard  with full fledged Tamil Suggestion Keywords support with Tamil Reply Message Templates",
@@ -98,9 +98,9 @@ echo "<table align='left' class=\"display\" id=\"\" cellpadding=\"0\" cellspacin
 
 
 foreach($apps as $app => $what ){
+	$apk = '';
 	list($cat,$lic,$desc) = explode('###',$what);
 	list($desc,$apk) = explode('***',$desc);
-	$apk = trim($apk);
 	if($apk) $app_extra = "<span title='Looking for paid verision? side load the apk!'</span> 
 		<a target=\"_blank\" download href=\"services/pirated/$apk\"> <font color='red'> <b>$$</b></font> </a> ";
 	echo "	<tr>
@@ -109,7 +109,9 @@ foreach($apps as $app => $what ){
 			<td>".trim($lic)."</td><td> 
 			<span title='".trim($desc)."'>".substr(trim($desc),0,50)."...</span></td>
 			<td style=\"display: none; \" >  ".trim($desc)."  </td>
-		</tr>\n";
+			</tr>\n";
+	
+	unset($cat,$lic,$desc,$apk,$app_extra);
 }
 
 echo 	"</table>\n";
