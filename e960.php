@@ -245,11 +245,13 @@ echo    "</div>\n";
 </li>
 
 
+
 <li>
 	<b>Home screen Orientation (Launcher)</b> by <a target='_blank'  href='http://forum.xda-developers.com/showthread.php?t=2437377'>App Settings</a> : <br>
 	Persistent: Xposed >> App Settings >> Launcher >> Orientation >> Normal
 </li>
 
+<li><b> Telephony/Dialer Orientation</b> First - Unlock the screen Orientation . Then use above mentioned 'App Settings' tools for Dialer app</li>
 
 
 <li>
