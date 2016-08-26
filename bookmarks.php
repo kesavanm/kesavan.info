@@ -61,7 +61,14 @@ $bookmarks = array(
 <div class="column1"> <? echo bookmark('social'); echo bookmark('smile'); ?> </div> 
 <div class="column2"> <? echo bookmark('misc'); echo bookmark('astronomy'); ?> </div>
 <div class="column3"> <? echo bookmark('trip/travel'); ?></div>
-<div class="rest">    <hr><h3>Misc</h3><p> Wanna see my resume? <a href="resume.php">here</a> it is.<? include('tail.php');?> </div>
+<div class="rest">    
+<hr> <h3>flips </h3>
+
+<a data-flip-widget="mag" 
+	href="https://flipboard.com/@kesavan2000in/kesavan-muthuvel%27s-open-1h2a4tnjy">View my Flipboard Magazine.</a>
+<script src="https://cdn.flipboard.com/web/buttons/js/flbuttons.min.js" type="text/javascript"></script>
+
+<? include('tail.php');?> </div>
 
 <?php
 function bookmark($type){

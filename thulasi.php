@@ -66,6 +66,7 @@ include('head.php');
 		$albums = array( 72157665209061676 , 72157666096112713,72157667449566700,
 			72157670491224625,	#Thulasi-Peacock
 			72157670115825102 ,	#Thulasi | Shopping
+			72157669822504504 , 	# 2016 August | Little Krishna at Houston 
 		);
 		rsort($albums);
 		foreach($albums as $set){
