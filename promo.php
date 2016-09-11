@@ -39,7 +39,8 @@ $promo = array(
 						"GitHub" => "My open buggies(codes)
 													#####
 													https://github.com/kesavanm/"													
-						);
+													,
+						"PonniyinSelvan" => "Ponniyin Selvan in ePub format (Tamil language ta_IN) ##### docs/Ponniyin_Selvan.epub",						);
 
 ksort($promo);
 echo "\n";
