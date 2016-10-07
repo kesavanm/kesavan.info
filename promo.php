@@ -2,15 +2,15 @@
 
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Kesavan Muthuvel's Shameless Self Promo</title>
-    <link rel="shortcut icon" href="kesavan.png" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Kesavan Muthuvel's Shameless Self Promo</title>
+	<link rel="shortcut icon" href="kesavan.png" type="image/x-icon">
 
 <link rel="icon" href="k7.png">
   </head>
 
   <body>
-  	
+	
 <?php
 include('head.php');
 
@@ -40,7 +40,8 @@ $promo = array(
 													#####
 													https://github.com/kesavanm/"													
 													,
-						"PonniyinSelvan" => "Ponniyin Selvan in ePub format (Tamil language ta_IN) ##### docs/Ponniyin_Selvan.epub",						);
+													"PonniyinSelvan" => "Ponniyin Selvan in ePub format (Tamil language ta_IN)( Improved version at <a href='http://ponniyinselvan.in/830/announcements/ponniyin-selvan-novel-online-ebook-format'>PSVP announcement 2016-10-07 </a>	 ) ##### docs/Ponniyin_Selvan.epub"
+													,);
 
 ksort($promo);
 echo "\n";
