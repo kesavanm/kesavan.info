@@ -84,7 +84,7 @@ include('head.php');
 			date_timestamp_set($date,$set_info['photoset']['date_create']);
 
 			$script .= "<hr><p><b>$title</b> on ".date_format($date,'Y-m-d')."\n";
-			$script .= "<script type='text/javascript' src='http://www.flickr.com/badge_code_v2.gne?".
+			$script .= "<script type='text/javascript' src='https://www.flickr.com/badge_code_v2.gne?".
 				"count=10&display=latest&size=m&layout=x&source=user_set&set=$set'></script>";
 		}
 		return $script;
