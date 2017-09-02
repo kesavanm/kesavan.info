@@ -1,3 +1,4 @@
+<link rel="icon" href="images/favico/1879445_pkT_11.ico">
 <?php 
 $line1 = array(
 			'index'  	=> 'Index',

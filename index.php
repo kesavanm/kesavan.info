@@ -4,9 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Kesavan Muthuvel's Personal Page</title>
-    <link rel="shortcut icon" href="kesavan.png" type="image/x-icon">
-
-<link rel="icon" href="k7.png">
+    <link rel="icon" href="images/favico/1879445_pkT_11.ico">
   </head>
 
   <body>
