@@ -45,7 +45,7 @@ if (!$_POST['feedback']){
 	  <label for="email">Email Address *</label>
 	 </td>
 	 <td valign="top">
-	  <input  type="text" name="email" maxlength="80" size="30">
+	  <input  type="email" name="email" maxlength="80" size="30">
 	 </td>
 	</tr>
 	<tr>
@@ -53,7 +53,16 @@ if (!$_POST['feedback']){
 	  <label for="telephone">Telephone Number</label>
 	 </td>
 	 <td valign="top">
-	  <input  type="text" name="telephone" maxlength="30" size="30">
+	  <input  type="tel" name="telephone" maxlength="30" size="30">
+	 </td>
+	</tr>
+	<tr>
+	<tr>
+	 <td valign="top">
+	  <label for="date">Date observed</label>
+	 </td>
+	 <td valign="top">
+	  <input  type="date" name="date">
 	 </td>
 	</tr>
 	<tr>
@@ -101,6 +110,7 @@ if(isset($_POST['email'])) {
     $last_name = $_POST['last_name']; // required
     $email_from = $_POST['email']; // required
     $telephone = $_POST['telephone']; // not required
+    $date= $_POST['date']; // not required
     $comments = $_POST['comments']; // required
  
     $error_message = "";
@@ -142,6 +152,7 @@ if(isset($_POST['email'])) {
     $email_message .= "Last Name: ".clean_string($last_name)."\n";
     $email_message .= "Email: ".clean_string($email_from)."\n";
     $email_message .= "Telephone: ".clean_string($telephone)."\n";
+    $email_message .= "Date: $telephone \n";
     $email_message .= "Comments: ".clean_string($comments)."\n";
  
 	// create email headers
