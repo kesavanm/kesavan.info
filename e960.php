@@ -128,6 +128,8 @@ echo "	<table align='left' cellpadding=\"0\" cellspacing=\"0\" border=\"0\" widt
 		 <ul>
 			<li> Qn #1 <b> How to recover the lost Original Kernel during zip installation(flashing) of other(incompactable) kernel ?</b>
 				<br> Ans : Flash again the same OS (on the same ROM , if applicable on MultiROM). Don't wipe the data .</li>
+			<li> Qn #2 <b> Secondary OS failed to verify ROOT in MultiROM.(or) Developer Options crash in Settings </b>
+				<br> Ans : Switch the Secondary OS with the Primary.</li>
 		</ul>
 			<hr>		</p><br>
 			<u><b>MultiROM Recommended Kernels</b></u></td>

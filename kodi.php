@@ -146,8 +146,9 @@ echo "	<table align='left' cellpadding=\"0\" cellspacing=\"0\" border=\"0\" widt
 			     Ans : <b>No where</b>.You need to spend your time,do some research.But I've few to shortlist.But not sure how this 'll be updated by the time you read this.
 				<ul>
 					<li> <u><b>Realy good one:</b></u>
-			       		<li> Both IPITV list & EPG guides <a href='http://kodilive.eu' target='_blank' > http://kodilive.eu </a>
+			       	<li> Both IPITV list & EPG guides <a href='http://kodilive.eu' target='_blank' > http://kodilive.eu </a>
 					<li> <b>Only IPTV :</b>
+					<li> http://pastebin.com/raw/7JFYpaDq 
 					<li> http://kesavan.info/files/iptv_m3u/animacao_pt_br.m3u
 					<li> http://kesavan.info/files/iptv_m3u/animation.m3u
 					<li> http://kesavan.info/files/iptv_m3u/hd-channels.m3u

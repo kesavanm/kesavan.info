@@ -27,7 +27,8 @@ $line3 = array(
 			"life"	=>"Looking for a girl",
 			"toon"	=>"A day - a cartoon",
 			"promo"	=>"Shameless self promo",
-			"random"=>"Generate random values"
+			"random"=>"Generate random values",
+			"goog"  =>"Goodbye GMail"
 			//"muzic"	=>"Muzic Time"
 		);	
 
