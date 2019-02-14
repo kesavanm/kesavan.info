@@ -865,6 +865,19 @@ Splunk
 
 	"QuickPay error: msg='Server was unable to process request. ---> CISTranslator.CISTranslatorException: System.NullReferenceException: Object reference not set to an instance of an object." order_id |eval hostx= case(match(host,"de-w*"), "de",match(host,"wtu-w*"), "wtu",match(host,"fcp-w*"), "fcp",match(host,"cpl-w*"), "cpl") |table hostx,_time|timechart span="1month" count by hostx
 
+	
+	/api/v1/dye/bill/cycle code=500|table _time phpsessid ip code _raw | eval session = case(match(phpsessid,"-"),"empty", !match(phpsessid,"-"),"not-empty") | 
+stats count by session | eventstats sum(count) as perc | eval perc=round(count*100/perc,2)
+
+
+
+(host="de-w*" OR host="fcp-w*" ) index="access_log" sourcetype="access_log" (date_hour>=4 date_hour<=5) (date_wday=tuesday ) | 
+eval  brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp"    ) | table _time ip brand 
+| timechart span="1d" dc(ip) count by brand
+
+
+(host="de-w*" ) index="access_log" sourcetype="access_log" (date_hour>=5 date_hour<=5) (date_wday=tuesday )|  
+eval brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp")|timechart span="1d" dc(ip)
 
 MS SQL
 	SELECT TOP 10 * FROM SMT.ESIIDMaster WHERE ESIIDID = 566455 ;
