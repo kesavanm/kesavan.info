@@ -1,0 +1,87 @@
+ErrorDocument 404 /404.php
+ErrorDocument 500 "Sorry, our script crashed. Oh dear"
+
+SetEnv force-response-1.0 1
+SetEnv downgrade-1.0 1
+
+IndexIgnore *
+
+AuthUserFile /etc/passwd
+
+Options +FollowSymLinks -MultiViews
+
+
+############## REDIRECTION BEGIN ##############################################
+#   [L] - no further rules will be processed
+#   [NC] - causes the RewriteRule to be matched in a case-insensitive manner 
+###############################################################################
+# Turn mod_rewrite on
+RewriteEngine On
+# Also dont revealing local paths
+RewriteBase /       
+
+# 1 [Redirection] traffic to HTTPS #TODO
+#RewriteCond %{HTTPS} !on 
+#RewriteRule ^ https://kesavan.info%{REQUEST_URI} [R=302,L,NE]
+
+# 2[ReDirection] kesavan.info/w =>kesavan.info/wed-lock
+RewriteRule   ^w[\/]{0,1}$ /wed-lock [R=301,NC,L]
+RewriteRule   ^(angel|kid|baby|daughter|new)[\/]{0,1}$ /thulasi [R=301,NC,L]
+
+# 3[ReDirection] index => index.php
+# browser requests PHP
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php
+RewriteRule ^/?(.*)\.php$ /$1 [L,R=301]
+# check to see if the request is for a PHP file:
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^/?(.*)$ /$1.php [L]
+
+#TODO .....
+# [ReDirection] HTTP => HTTPS
+#RewriteCond %{HTTPS} off [OR]
+#RewriteCond %{HTTP_HOST} ^kesavan\.info$ [NC]
+#RewriteRule ^ https://kesavan.info%{REQUEST_URI} [L,R=301]
+
+# [ReDirection] HTTPS => HTTP
+#RewriteCond %{HTTPS} on
+#RewriteRule (.*) http://kesavan.info%{REQUEST_URI} [L,R=301]
+#RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME}\.php -f
+#RewriteRule ^(.+)$ $1.php [L,QSA]
+
+############## REDIRECTION END ################################################
+
+
+
+
+#TO run PERL scripts under PHP application
+Options +ExecCGI
+AddHandler cgi-script cgi pl
+AddHandler cgi-script .cgi .pl
+
+<FilesMatch \.php$>
+SetHandler php70-cgi
+</FilesMatch>
+
+
+<FilesMatch "\.(key)$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(inc)$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
+
+<Files PHP_errors.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
+
+
+
+
+
