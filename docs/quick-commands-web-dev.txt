@@ -716,7 +716,10 @@ GIT
 		git diff --name-only | xargs  ls -lt 		# latest modified files
 
 		git log --name-only --pretty=format:"%H - %h - %an, %ar : %s"  --author=kmuthuvel  --walk-reflogs   my_hot_fix			# log on only that specific branch
-		git log --stat --oneline --pretty=format:"%h - %an, %ar : %s" --author="\(kmuthuvel\)\|\(raju\)" --walk-reflogs welcome-offshore
+		git log --stat --oneline --pretty=format:"%h - %an, %ar : %s" --author="\(kmuthuvel\)\|\(raju\)" --walk-reflogs welcome-offshore		
+		
+		#team work on date wise		
+		git log --date-order --date=iso  --pretty=format:'%C(cyan)%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08 %C(red)%h  %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s' --after="2019-01-01"  --author="\(Kesavan\)\|\(kmuth\)"
 
 		GIT TIME maching
 		================
@@ -869,15 +872,25 @@ Splunk
 	/api/v1/dye/bill/cycle code=500|table _time phpsessid ip code _raw | eval session = case(match(phpsessid,"-"),"empty", !match(phpsessid,"-"),"not-empty") | 
 stats count by session | eventstats sum(count) as perc | eval perc=round(count*100/perc,2)
 
+	(host="de-w*" OR host="fcp-w*" ) index="access_log" sourcetype="access_log" (date_hour>=4 date_hour<=5) (date_wday=tuesday ) | 
+	eval  brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp"    ) | table _time ip brand 
+	| timechart span="1d" dc(ip) count by brand
 
 
-(host="de-w*" OR host="fcp-w*" ) index="access_log" sourcetype="access_log" (date_hour>=4 date_hour<=5) (date_wday=tuesday ) | 
-eval  brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp"    ) | table _time ip brand 
-| timechart span="1d" dc(ip) count by brand
+	(host="de-w*" ) index="access_log" sourcetype="access_log" (date_hour>=5 date_hour<=5) (date_wday=tuesday )|  
+	eval brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp")|timechart span="1d" dc(ip)
+
+	#7 day weekly view - Peak day reporting
+	host="de-w*" code=500 index=access_log  | convert timeformat="%A" ctime(_time) AS c_time |chart count by c_time
+
+	#24 Hour View - Peak Hour reporting
+	host="de-w*" code=500 index=access_log  | convert timeformat="%H" ctime(_time) AS c_time | table uri c_time | chart count by  c_time	
+
+	host="de-w*" code=500 index=access_log | table uri | top limit=20 uri |  convert timeformat="%m/%d/%Y" ctime(_time) AS datex | table datex|timechart count by datex
 
 
-(host="de-w*" ) index="access_log" sourcetype="access_log" (date_hour>=5 date_hour<=5) (date_wday=tuesday )|  
-eval brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp")|timechart span="1d" dc(ip)
+NRQL
+	SELECT COUNT(*) FROM TransactionError WHERE  httpResponseCode = 500 AND  `request.headers.referer` LIKE '%/pogo/search' AND SERVER_NAME ='www.example.com' AND timestamp > 1548201600  AND timestamp < 1549584000 AND  timestamp > 1549670399 AND timestamp <   1550880000 
 
 MS SQL
 	SELECT TOP 10 * FROM SMT.ESIIDMaster WHERE ESIIDID = 566455 ;
@@ -945,6 +958,12 @@ DOS
 	SHORTCUT FOR INET OPTIONS
 	
 	C:\Windows\System32\control.exe Inetcpl.cpl,Connections,4
+	
+	#stored Wifi	
+	for ssid in `netsh wlan show profiles|grep "All User" | awk  -F: '{print $2}'` ; do; netsh wlan show profile name=$ssid key=clear |grep -E 'SSID name|Key Content' ; done;
+	
+	#find for files
+	DIR /B /S /R /O:N /W *sample*
 
 MarkDown
 	Name	|Sex|City,State
@@ -1077,8 +1096,8 @@ GNU/Screen:
 
 	C-a :resize 30		#increases 30 lines
 	C-a :resize 75%		#increases 75%
-	C-a :resize -h +10 	#increases the size 
-	C-a :resize -w -10 	#decreases the size
+	C-a :resize -h +10 	#increases the size 	#horizantal
+	C-a :resize -v -10 	#decreases the size		#vettical
 	
 PHPStrom
 		Code fold at method level - CTRL+SHIFT+NumPad *, then (regular)1.

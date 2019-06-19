@@ -1,7 +1,7 @@
 <?php
 
 #ini_set('display_errors',1);
-#error_reporting(E_ALL);
+error_reporting(0);
 
 
 function get_client_ip() {
@@ -93,7 +93,7 @@ echo "<html><body width='25%' >";
 echo "<table class=\"ui table\" width='25%' > ";
 echo "<thead><tr><th>IP</th><th>". get_client_ip()."</th></tr></thead><tbody>";
 
-foreach(ip_info(get_client_ip(),"Location") as $k => $v)
+foreach(@ip_info(@get_client_ip(),"Location") as $k => $v)
 	echo ($v)? "<tr><td>$k </td><td>$v </td></tr> ":'';
 echo "</tbody></table>";
 #print_r(ip_info(get_client_ip(),"Location"));

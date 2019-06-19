@@ -74,13 +74,6 @@ $line3 = array(
 	</div> 
 
 </center>
-<form action="search.php" method="get">
-	<div align="right">
-	<input name="query" id="query" size="40" action="include/js_suggest/suggest.php" columns="2" autocomplete="off" delay="1500" type="text">
-	<input value="Search" type="submit">
-	</div>
-	<input name="search" value="1" type="hidden">
-</form>
 <img align='right' src='images/slam-on-kb-bloody.gif'>
 
 <hr>

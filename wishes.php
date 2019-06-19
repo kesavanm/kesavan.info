@@ -1,5 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?
+include_once('head.php');
+print "	<table> <tr> <td >";	#PSEUDO TABLE 
 
 include_once('books.pl.js');
 
@@ -197,6 +199,5 @@ if(count($lines)){
 }else echo "<h3>Be the first to wish them! </h3>";  
 
 ////////////////////END OF NEW VERSION ///////////////////
-
+print "</td> </tr> <tr> <td> ";  include 'tail.php'; echo " </td> </table>";	#PSEUDO TABLE 
 ?>
-

@@ -10,6 +10,8 @@ AuthUserFile /etc/passwd
 
 Options +FollowSymLinks -MultiViews
 
+AddHandler cgi-script .cgi
+Options +ExecCGI
 
 ############## REDIRECTION BEGIN ##############################################
 #   [L] - no further rules will be processed

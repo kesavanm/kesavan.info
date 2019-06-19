@@ -79,7 +79,10 @@ $tools  = array (
 					photorec_64x64.png	"		,
 		'CmosPwd'	=>	" Recover  BIOS setup  password	#####
 					http://www.cgsecurity.org/wiki/CmosPwd	#####
-					cmospwd.gif	"
+					cmospwd.gif	",
+		'Security-in-a-Box' => "Security in a Box - Digital security tools and tactics #####
+					https://securityinabox.org/en/ #####
+					securityinabox.png",
 
 
 		/**************************************************************************************
@@ -112,10 +115,10 @@ echo <<< "HARDCODED"
 
 <p>
 
-<a href="http://www.getgnulinux.org/" title="Get GNU/Linux - an alternative to Windows; free as in beer and speech"><img src="http://www.getgnulinux.org/links/en/horn_125x50_2.png" alt="Get GNU/Linux" width="125" height="50" border="0"/></a>
+<a href="http://www.getgnulinux.org/" title="Get GNU/Linux - an alternative to Windows; free as in beer and speech">
+<img src="https://getgnulinux.org/images/slides/GNU_Tux.svg" alt="Get GNU/Linux" width="125" height="50" border="0"/></a>
 
-
- <a href="http://www.upgradefromwindows8.com"><img src="images/logos/modified/closewin.png" alt="Close Windows, Open Doors"/></a> 
+<a href="http://www.upgradefromwindows8.com"><img src="images/logos/modified/closewin.png" alt="Close Windows, Open Doors"/></a> 
 
 
 
