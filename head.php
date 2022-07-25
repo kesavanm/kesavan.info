@@ -13,7 +13,6 @@ $line1 = array(
 			'sign'		=> 'My Sign'
 		);
 
-
 $line2 = array(
 			"thanks"	=>"Thanks to..",
 			"materials"	=>"Open Materials",
@@ -21,6 +20,7 @@ $line2 = array(
 			"script"	=>"scripts to look",
 			"regex"		=>"RegEx me!",
 			"tricks"	=>"Web Dev tips<img src='images/new.gif'> ",
+			"tamil-type"	=>"Type தமிழ் ",
 		);		
 
 $line3 = array(
@@ -44,16 +44,20 @@ $line3 = array(
 <center>
     <h3 class="c1">Kesavan Muthuvel's Personal Home Page </h3>
 	<div class="c2">
-	<?
-	foreach($line1 as $link => $label )
+	<?php
+	foreach($line1 as $link => $label ){
 		echo "<a href=\"$link\">$label</a> | ";
+}
+
 	?>
+
+
 	<a href="http://www.flickr.com/k7/sets" target="_blank" >Travel Photos</a>  
 	| <a href="http://blog.kesavan.info">Blog</a>
 	</div>
 
 	<div class="c2">
-	<?
+	<?php
 	foreach($line2 as $link => $label )
 		echo "<a href=\"$link\">$label</a> | ";
 	?>	
@@ -61,7 +65,7 @@ $line3 = array(
 	</div> 
 
 	<div class="c2">
-	<?
+	<?php
 	foreach($line3 as $link => $label )
 		echo "<a href=\"$link\">$label</a>  ";
 #	| <a href="muzic.php">Muzic Time Collection</a>
@@ -69,8 +73,9 @@ $line3 = array(
 	?>	
 	<div class="c2">
 		<span id="highlight" name="highlight">	<a target='_blank' href="wed-lock">Wed Lock - 2014</span></a> 		| 	
-		<span id="highlight" name="highlight">	<a target='_blank' href="invite.php">Wedlock Invitation</span></a>	| 
-		<span id="highlight" name="highlight">	<a href="thulasi.php"> Thulasi Kesavan</span><img src="images/new.gif"> </a>
+		<span id="highlight" name="highlight">	<a target='_blank' href="invite">Wedlock Invitation</span></a>	| 
+		<span id="highlight" name="highlight">	<a href="thulasi"> Thulasi Kesavan</span><img src="images/new.gif"> </a>
+		<span id="highlight" name="highlight">	<a href="kundavai"> Kundavai Kesavan</span><img src="images/new.gif"> </a>
 	</div> 
 
 </center>

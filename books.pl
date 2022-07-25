@@ -35,8 +35,8 @@ print '	<table align="left" class="display" id="books" cellpadding="0" cellspaci
 					<th> Book </th> <th> Type</th> <th> Size </th> <th>Size(Readable)</th><th> Last Modified </th> 
 				</tr> </thead>';
 my @books_loc = ( 
-"/home/kesavan/webapps/app_cloud_2_kesavan_info/data/kesavan/files/study/" ,
-"/home/kesavan/webapps/app_cloud_2_kesavan_info/data/kesavan/files/books2/"
+"/home/kesavan/apps/nextcloud/data/kesavan/files/study/" ,
+"/home/kesavan/apps/nextcloud/data/kesavan/files/books2/"
 );
 
 foreach my $dir(@books_loc){
