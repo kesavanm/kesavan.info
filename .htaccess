@@ -1,3 +1,7 @@
+
+
+
+
 ErrorDocument 404 /404.php
 ErrorDocument 500 "Sorry, our script crashed. Oh dear"
 
@@ -28,7 +32,7 @@ RewriteBase /
 
 # 2[ReDirection] kesavan.info/w =>kesavan.info/wed-lock
 RewriteRule   ^w[\/]{0,1}$ /wed-lock [R=301,NC,L]
-RewriteRule   ^(angel|kid|baby|daughter|new)[\/]{0,1}$ /thulasi [R=301,NC,L]
+RewriteRule   ^(angel|kundavai|kids|kid|baby|daughter|new)[\/]{0,1}$ /thulasi [R=301,NC,L]
 
 # 3[ReDirection] index => index.php
 # browser requests PHP
@@ -62,9 +66,6 @@ Options +ExecCGI
 AddHandler cgi-script cgi pl
 AddHandler cgi-script .cgi .pl
 
-<FilesMatch \.php$>
-SetHandler php70-cgi
-</FilesMatch>
 
 
 <FilesMatch "\.(key)$">
