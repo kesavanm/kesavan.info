@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="kesavan.png" type="image/x-icon">
     <link rel="icon" href="k7.png">
 		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-		<script type="text/javascript" src="http://yjl.googlecode.com/svn/trunk/JavaScript/falling_hearts.js"></script>
+		<script type="text/javascript" src="./jquery/falling_hearts.js"></script>
 		
 
     <!-- Add IntroJs styles 
@@ -19,7 +19,6 @@
      -->
     <link href="./jquery/intro.js-0.8.0/introjs.css" rel="stylesheet">
     <script type="text/javascript" src="./jquery/intro.js-0.8.0/intro.js"></script>
-     <script type="text/javascript" src="./jquery/jquery.js"></script>
   </head>
   
 
@@ -77,7 +76,7 @@ include('docs/wedding.txt');
 
 
 <?
-include('tail.php');
+#include('tail.php');
 ?>
 
 <style>
