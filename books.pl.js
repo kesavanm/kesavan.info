@@ -3,19 +3,8 @@
 	@import "jquery/dataTable/css/demo_table.css";
 </style>
 	<!-- jQuery -->
-
-
-<!-- 
-/*
-
-// . "YOU MUST LOAD JQUERY JS BEFORE DATATABLES JS". One line of text would save humans a lot of wasted time :)
-//  https://stackoverflow.com/questions/31227844
-//
-*/
-
--->
 <script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
-<script type="text/javascript" language="javascript" src="jquery/dataTable/jquery.dataTables.js" defer ></script>
+<script type="text/javascript" language="javascript" src="jquery/dataTable/jquery.dataTables.js"></script>
 <script type="text/javascript" language="javascript" src="jquery/dataTable/jquery.dataTables.columnFilter.js"></script>
 <script type="text/javascript" charset="utf-8">
 	var asInitVals = new Array();

@@ -107,11 +107,9 @@ $token = $_SESSION['token'];
 	</form>
 <?php
 }
-
 //if they DID upload a file...
 
 if(isset($_POST['email']) && !empty($_POST['token'])) {
-
 
     function died($error) {
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
@@ -131,7 +129,6 @@ if(isset($_POST['email']) && !empty($_POST['token'])) {
     }
 
 
-
     if (!hash_equals($_SESSION['token'], $_POST['token'])) {
      // Proceed to process the form data
      died('We are sorry, but there appears to be a problem with the form you submitted :).');
@@ -146,7 +143,7 @@ if(isset($_POST['email']) && !empty($_POST['token'])) {
 
     $error_message = "";
 
-    if(md5($_POST['ans'])!=$_POST['encans']) {
+    if(md5($_POST[ans])!=$_POST[encans]) {
       $error_message ="Confirm you're Human! Check your answer.<br />";
     }
 
@@ -193,6 +190,7 @@ if(isset($_POST['email']) && !empty($_POST['token'])) {
     $email_message .= "Remote IP: ".$_REQUEST['REMOTE_ADDR']."\n";
     $email_message .= "Token: ".$_REQUEST['token']."\n";
 	
+
 	// create email headers
 	$headers = 'From: '."feedback@kesavan.info"."\r\n".
 	'Reply-To: '.$email_from."\r\n" .
