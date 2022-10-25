@@ -43,6 +43,7 @@
   <body   onload="InitMap();">>
 <?
 include('head.php');
+include_once('keys.config');
 include_once('jquery/dataTable/dataTable.php');
 ?>
 I love Open source concept & it's <a href='https://www.gnu.org/philosophy/'>philosophy</a>. along with some portion of Yahoo!,Google & other commercial portals ., Personally for computing I prefer GNU OSes over the Windows/Macs,<br>
@@ -130,11 +131,14 @@ $
 <IMG SRC="https://maps-api-ssl.google.com/maps/api/staticmap?size=195x150&amp;sensor=false&amp;client=google-profiles&amp;markers=size:small%7Ccolor:blue%7C13.060422,80.249583&amp;markers=size:small%7Ccolor:green%7C9.915997,78.121847%7C8.733,77.7%7C10.35672,77.976051%7C10.021144,77.961016&amp;signature=88hpQNivegCV9mCJuwqaVkq-lGA%3D" name="graphics1" alt="Map of the places where this user has lived" align=BOTTOM BORDER=0>
 	src="https://maps-api-ssl.google.com/maps/api/staticmap?api=AIzaSyDweiQkvCeqlusLnuvlwUWvJ522fAf9H80&size=512x512&sensor=false&markers=size:small|color:blue|13.060422,80.249583&markers=size:small|color:green|9.915997,78.121847|8.733,77.7|10.35672,77.976051|10.021144,77.961016" 
 -->
+
+
+
 <iframe
 width="600"
   height="450"
   frameborder="0" style="border:0" 
-	src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDweiQkvCeqlusLnuvlwUWvJ522fAf9H80&q=Sholavandan+Madurai" allowfullscreen
+	src="https://www.google.com/maps/embed/v1/search?key=<?=GOOGLE_KEY?>&q=Sholavandan+Madurai" allowfullscreen
 	 name="graphics1" alt="Map of the places where this user has lived" align=BOTTOM BORDER=0>
 	 </iframe>
 
@@ -154,13 +158,9 @@ width="600"
 <font color="#888888"><font ><font size=3 style="font-size: 11pt">Gender</font ></H2>
 <P align=left style="">
 <font   >Male</font ></P>
-<H2  align=left style="margin-top: 0in; margin-bottom: 0in; ">
-<font color="#888888"><font ><font size=3 style="font-size: 11pt">Other
-names</font ></H2>
-<P align=left style="">
-<font   >kesu</font ></P>
+
 <H2  align=left style="margin-left: 0.1in; margin-top: 0in; margin-bottom: 0.16in; ">
-<font color="#888888"><font ><font size=3 style="font-size: 11pt">Links</font ></H2>
+<font color="#888888"><font ><font size=3 style="font-size: 11pt">Socials/Links</font ></H2>
 	
 <?
 
