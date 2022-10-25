@@ -27,6 +27,7 @@
 		style="margin: 1em 0; padding: 0 1em; height: 2400px; overflow: auto; border: 1px solid #ccc; box-shadow: inset 0 5px 5px rgba(0,0,0,0.1); font-size: 0.9em;">
 
 		
+   <!-- <pre><?php # include_once('files/quick-commands-web-dev.txt');?></pre>  This is in TODO -->
 <pre><?php include_once('quick-commands-web-dev.txt');?></pre>
 
 </div>
