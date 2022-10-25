@@ -6,8 +6,7 @@
 	<link rel="shortcut icon" href="kesavan.png" type="image/x-icon">
 	<link rel="icon" href="k7.png">
 
-
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDweiQkvCeqlusLnuvlwUWvJ522fAf9H80"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?=GOOGLE_KEY?>"></script>
     <script type="text/javascript">
         var locations = [
 
@@ -129,7 +128,7 @@ $
 <font ></font>
 <!--
 <IMG SRC="https://maps-api-ssl.google.com/maps/api/staticmap?size=195x150&amp;sensor=false&amp;client=google-profiles&amp;markers=size:small%7Ccolor:blue%7C13.060422,80.249583&amp;markers=size:small%7Ccolor:green%7C9.915997,78.121847%7C8.733,77.7%7C10.35672,77.976051%7C10.021144,77.961016&amp;signature=88hpQNivegCV9mCJuwqaVkq-lGA%3D" name="graphics1" alt="Map of the places where this user has lived" align=BOTTOM BORDER=0>
-	src="https://maps-api-ssl.google.com/maps/api/staticmap?api=AIzaSyDweiQkvCeqlusLnuvlwUWvJ522fAf9H80&size=512x512&sensor=false&markers=size:small|color:blue|13.060422,80.249583&markers=size:small|color:green|9.915997,78.121847|8.733,77.7|10.35672,77.976051|10.021144,77.961016" 
+	src="https://maps-api-ssl.google.com/maps/api/staticmap?api=&size=512x512&sensor=false&markers=size:small|color:blue|13.060422,80.249583&markers=size:small|color:green|9.915997,78.121847|8.733,77.7|10.35672,77.976051|10.021144,77.961016" 
 -->
 
 
