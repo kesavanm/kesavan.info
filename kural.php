@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Kesavan Muthuvel's view on Thirukural </title>
+    <link rel="shortcut icon" href="kesavan.png" type="image/x-icon">
+	<link rel="icon" href="k7.png">
+  </head>
+
+  <body>
+
+<? 
+
+include('head.php');
+include('books.pl.js');
+include_once('vendor/kesavanm/kural-piem/kural.php');
+
+
+print "<h1>குறள் PIEM</h1>";
+# Thou a beautiful poem π , just at look - tiggers
+# hot love, you never change great constant !
+$மாதிரி = " கவிதை நீ ஆகிறாய் பை, கண்டதும்
+            காதல்தூண்டிவிடும் மாறா மாறிலிநீயடி";
+print "	<table> <tr> <td >";	#PSEUDO TABLE             
+print '	<table align="left" width=100% class="display" id="books" cellpadding="0" cellspacing="0" border="0" >
+          <thead> <tr> 
+                    <th>பாடல்</th> <th>பாடல் பையமா?</th><th>விளக்கம்</th>
+                   </tr>
+          </thead>';
+$பாடல் = new பாடல்($மாதிரி);
+$wow  = $பாடல்->பாடல்_பையமா();
+  if(isset($wow)){ 
+    print "<tr> <td>".$பாடல்->பாடல்_break().      "</td>";
+    print "     <td>".$wow['state'].        "</td>";
+    print "     <td>"; foreach($wow['log'] as $word){
+    print                 $word."<br>\n";
+                        }              
+    print "</td>";
+  }
+
+
+print "    </tr>\n";
+print '	</table>';
+print "</table>";	#PSEUDO TABLE
+?>
+<hr>
+<form action="" method="POST">
+  <h1>குறள் தேடல்</h1> 
+  <label for="name">வார்த்தை(1 to 24 characters):</label>
+
+  <input type="text" id="name" name="தேடல்" required
+        minlength="1" maxlength="24" size="16"></input>
+  <input type="submit" value="Search குறள்"></input>
+  <style>
+      label {
+          display: block;
+          font: 1rem 'Fira Sans', sans-serif;
+      }
+      input,
+      label {
+          margin: .4rem 0;
+      }
+  </style>
+</form>
+
+<?
+
+if ($_REQUEST['தேடல்']){
+  
+  print "	<table> <tr> <td >";	#PSEUDO TABLE 
+  print '	<table width="100%" align="left" class="display" id="books" cellpadding="0" cellspacing="0" border="0" >
+          <thead> <tr> 
+            <th>#</th>
+            <th>குறள்</th>
+          </tr></thead>';
+
+    $search = $_REQUEST['தேடல்'];
+
+    $குறள்கள் = file('vendor/kesavanm/kural-piem/குறள்.txt');       
+    foreach($குறள்கள் as $குறள் ){
+        $count++;
+        $பாடல் = new பாடல்($குறள்);
+        $row = $பாடல்->பாடல்_தேடல்($search)?$பாடல்->பாடல்_break():"";
+        $row = preg_replace("/($search)/Ui", "<mark>$1</mark>", $row);
+        print $row? "<tr>  <td> $count </td>  <td>$row</td></tr>\n":"";        
+    }
+
+    print '	</table>';
+
+    print "</td> </tr> 
+          </table>";	#PSEUDO TABLE 
+    print "</body> </html>";
+}
+
+include('tail.php'); ?>
