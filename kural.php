@@ -42,13 +42,17 @@ $wow  = $பாடல்->பாடல்_பையமா();
 print "    </tr>\n";
 print '	</table>';
 print "</table>";	#PSEUDO TABLE
+$random_terms = array('அன்பு','குறள்','தேடல்','அறன்','காதல்','உலகு','அணங்கு','நெஞ்சு','அறிவு','ஒளி','களவி','ஓசை','சுவை','மாதர்','பொருள்');
+$random_search = $random_terms[array_rand($random_terms,1)];
+$search = $_REQUEST['தேடல்']??$random_search;
+
 ?>
 <hr>
 <form action="" method="POST">
   <h1>குறள் தேடல்</h1> 
   <label for="name">வார்த்தை(1 to 24 characters):</label>
 
-  <input type="text" id="name" name="தேடல்" required
+  <input type="text" id="name" name="தேடல்" value="<?=$search?>" required
         minlength="1" maxlength="24" size="16"></input>
   <input type="submit" value="Search குறள்"></input>
   <style>
@@ -65,7 +69,7 @@ print "</table>";	#PSEUDO TABLE
 
 <?
 
-if ($_REQUEST['தேடல்']){
+if ($search){
   
   print "	<table> <tr> <td >";	#PSEUDO TABLE 
   print '	<table width="100%" align="left" class="display" id="books" cellpadding="0" cellspacing="0" border="0" >
@@ -73,8 +77,6 @@ if ($_REQUEST['தேடல்']){
             <th>#</th>
             <th>குறள்</th>
           </tr></thead>';
-
-    $search = $_REQUEST['தேடல்'];
 
     $குறள்கள் = file('vendor/kesavanm/kural-piem/குறள்.txt');       
     foreach($குறள்கள் as $குறள் ){
