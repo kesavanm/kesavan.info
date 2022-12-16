@@ -1,4 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<?php
+include_once('keys.config');
+?>
+
+
 <html>
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -42,7 +47,6 @@
   <body   onload="InitMap();">>
 <?
 include('head.php');
-include_once('keys.config');
 include_once('jquery/dataTable/dataTable.php');
 ?>
 I love Open source concept & it's <a href='https://www.gnu.org/philosophy/'>philosophy</a>. along with some portion of Yahoo!,Google & other commercial portals ., Personally for computing I prefer GNU OSes over the Windows/Macs,<br>
