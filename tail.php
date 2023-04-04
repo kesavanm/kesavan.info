@@ -13,7 +13,7 @@
     This work is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License along with this work; if not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA." >
-    CopyLeft  <img src="images/new.gif"> (&#x03FD)  2008 - 2022  Kesavan Muthuvel
+    CopyLeft  <img src="images/new.gif"> (&#x03FD)  2008 - 2023  Kesavan Muthuvel
 					 <a href='https://www.gnu.org/copyleft/'>More on CopyLeft</a>
 					</span>   
 					 

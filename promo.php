@@ -40,8 +40,23 @@ $promo = array(
 													#####
 													https://github.com/kesavanm/"													
 													,
-													"PonniyinSelvan" => "Ponniyin Selvan in ePub format (Tamil language ta_IN)( Improved version at <a href='http://ponniyinselvan.in/830/announcements/ponniyin-selvan-novel-online-ebook-format'>PSVP announcement 2016-10-07 </a>	 ) ##### docs/Ponniyin_Selvan.epub"
+						"PonniyinSelvan" => "Ponniyin Selvan in ePub format (Tamil language ta_IN)( Improved version at <a href='http://ponniyinselvan.in/830/announcements/ponniyin-selvan-novel-online-ebook-format'>PSVP announcement 2016-10-07 </a>	 ) ##### docs/Ponniyin_Selvan.epub"
 													,);
+
+
+$latest = ["இல்லாதவன் பிள்ளை"=>"New (tamil lang) e-Book on <a href='https://read.amazon.com/kp/kshare?asin=B0BVNRT38H'>Amazon/Kindle</a> ##### https://www.amazon.com/%E0%AE%87%E0%AE%B2%E0%AF%8D%E0%AE%B2%E0%AE%BE%E0%AE%A4%E0%AE%B5%E0%AE%A9%E0%AF%8D-%E0%AE%AA%E0%AE%BF%E0%AE%B3%E0%AF%8D%E0%AE%B3%E0%AF%88-Tamil-%E0%AE%95%E0%AF%87%E0%AE%9A%E0%AE%B5%E0%AE%A9%E0%AF%8D-%E0%AE%AE%E0%AF%81%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81%E0%AE%B5%E0%AF%87%E0%AE%B2%E0%AF%8D-ebook/dp/B0BVNRT38H "]		;										
+
+$latest["List of books"] = "Amazon's Author page! showing the works from me ( <a href='https://www.amazon.in/Kesavan-Muthuvel/e/B0BZFGQWCC'>  IN</a> version)  ##### https://www.amazon.com/stores/Kesavan-Muthuvel/author/B0BZFGQWCC";
+
+echo "<h2> Latest works: </h2>"; 
+foreach($latest as $site => $matter){
+	list($what , $uri) = explode('#####',$matter);
+	echo "<li> <a target='_blank' href='".trim($uri)."'>$site</a> - $what</li>\n";
+}
+
+echo "<hr>";
+
+echo "<h2> Notable other works: </h2>"; 
 
 ksort($promo);
 echo "\n";

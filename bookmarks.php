@@ -13,7 +13,6 @@
  
 <?php
 include('head.php');
-//phpinfo();
 
 $bookmarks = array( 
 		'social' => array(
@@ -43,15 +42,15 @@ $bookmarks = array(
 				'seasons-simulator'	=> 'http://astronomy.beamappzone.com/?m=simulations',
 				'3d-appzend-simulator'	=> 'http://solarsystem.appzend.net/?q=solarsimulator1',
 				'pioneer-10-plaque'	=>'http://earthspacenews.com/plaque-pioneer-10/',
-			'5th-dimension'=>'http://en.wikipedia.org/wiki/Wikipedia:Reference_desk/Archives/Science/2012_August_17#physics.2F5th_Dimension',
+				'5th-dimension'		=>'http://en.wikipedia.org/wiki/Wikipedia:Reference_desk/Archives/Science/2012_August_17#physics.2F5th_Dimension',
 					),
 		'trip/travel' => array(
-		'india-art-and-archaeology' => 'http://www.art-and-archaeology.com/india/india.html', 
-'hoysala-temples' => 'http://in.lifestyle.yahoo.com/five-hoysala-temples-off-the-tourist-map.html',
-'காசியில் நான்கு நாட்கள்' => 'http://meedpu.blogspot.co.uk/2013/10/18_3103.html',
-'புல்வெளிதேசம் ' => 'http://www.jeyamohan.in/?p=2854',
-'சேரன் பாண்டியன் பெருவழித்தடம்' => 'http://maduraivaasagan.wordpress.com/2013/11/09/%E0%AE%9A%E0%AF%87%E0%AE%B0%E0%AE%A9%E0%AF%8D-%E0%AE%AA%E0%AE%BE%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AE%BF%E0%AE%AF%E0%AE%A9%E0%AF%8D-%E0%AE%AA%E0%AF%86%E0%AE%B0%E0%AF%81%E0%AE%B5%E0%AE%B4%E0%AE%BF%E0%AE%A4/'
-)
+				'india-art-and-archaeology' 	=> 'http://www.art-and-archaeology.com/india/india.html', 
+				'hoysala-temples' 		=> 'http://in.lifestyle.yahoo.com/five-hoysala-temples-off-the-tourist-map.html',
+				'காசியில் நான்கு நாட்கள்' 		=> 'http://meedpu.blogspot.co.uk/2013/10/18_3103.html',
+				'புல்வெளிதேசம் '			=> 'http://www.jeyamohan.in/?p=2854',
+				'சேரன் பாண்டியன் பெருவழித்தடம்' 	=> 'http://maduraivaasagan.wordpress.com/2013/11/09/%E0%AE%9A%E0%AF%87%E0%AE%B0%E0%AE%A9%E0%AF%8D-%E0%AE%AA%E0%AE%BE%E0%AE%A3%E0%AF%8D%E0%AE%9F%E0%AE%BF%E0%AE%AF%E0%AE%A9%E0%AF%8D-%E0%AE%AA%E0%AF%86%E0%AE%B0%E0%AF%81%E0%AE%B5%E0%AE%B4%E0%AE%BF%E0%AE%A4/'
+					)
 
 	);
 

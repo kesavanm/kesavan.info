@@ -16,12 +16,12 @@ $line3 = array(
 	"random"=>"Generate random values",	"goog"  =>"Goodbye GMail",		"kural" =>'Thirukkural - #PIEM <img src="images/new.gif">',);
 	//"muzic"	=>"Muzic Time"
 
-$tools = ["ip"		=> "What's your IP",	"image-resize"	=> "Resize your image",	"tor-status"	=> "Dark status from Tor",];
+$tools = ["ip"		=> "What's your IP",	"image-resize"	=> "Resize your image",	"tor-status"	=> "Dark status from Tor", "random" => "Random token gen"];
 
 $hl    = ["wed-lock" => "_Wed Lock - 2014",	"invite" => "_Wedlock Invitation",
-	"thulasi" => "Thulasi Kesavan<img src='images/new.gif'>","kundavai"=>"Kesavan Muthuvel<img src='images/new.gif'>" ];
+	"thulasi" => "Thulasi Kesavan<img src='images/new.gif'>","kundavai"=>"Kundavai Kesavan<img src='images/new.gif'>" ];
 
-function generateLinks( $links, $hl=0){
+function generateLinks( $links, $hl=0, $title=""){
 	$o =  $oo = '';
 
 	foreach($links as $link => $label){
@@ -31,8 +31,9 @@ function generateLinks( $links, $hl=0){
 
 	$oo = trim($oo,'|');
 
+	$title = $title?"<b>$title:</b>":'';
 	$outcome = ($hl)? "\n".'<span id="highlight" name="highlight">' . $oo ."\n".'</span>': $oo;
-	$o .= "<div class='c2'> $outcome \n </div> \n";
+	$o .= "<div class='c2'> $title $outcome \n </div> \n";
 	return $o;
 }
 
@@ -47,8 +48,8 @@ function generateLinks( $links, $hl=0){
 	echo	generateLinks($line1);
 	echo	generateLinks($line2);
 	echo	generateLinks($line3);
-	echo	generateLinks($tools);
-	echo	generateLinks($hl,1);
+	echo 	generateLinks($tools,0,"Tools");
+	echo	generateLinks($hl,1, "Double trouble");
 	?>	
 </center>
 <img align='right' src='images/slam-on-kb-bloody.gif'>
