@@ -20,7 +20,9 @@ print "<h1>குறள் PIEM</h1>";
 # Thou a beautiful poem π , just at look - tiggers
 # hot love, you never change great constant !
 $மாதிரி = " கவிதை நீ ஆகிறாய் பை, கண்டதும்
-            காதல்தூண்டிவிடும் மாறா மாறிலிநீயடி";
+	    காதல்தூண்டிவிடும் மாறா மாறிலிநீயடி";
+$மாதிரி = $_REQUEST['piem']??$மாதிரி  ;
+
 print "	<table> <tr> <td >";	#PSEUDO TABLE             
 print '	<table align="left" width=100% class="display" id="books" cellpadding="0" cellspacing="0" border="0" >
           <thead> <tr> 
@@ -42,6 +44,18 @@ $wow  = $பாடல்->பாடல்_பையமா();
 print "    </tr>\n";
 print '	</table>';
 print "</table>";	#PSEUDO TABLE
+?>
+
+<form action="" method="POST">
+  <h3>Check my #PIEM</h3> 
+  <label for="piem"> your sample piem(max:100 words):</label>
+
+  <textarea id="piem" name="piem" rows='5' cols='32' value="<?=$piem?>" required ></textarea>
+  <input type="submit" value="Confirm my piem!"></input>
+</form>
+
+<?
+
 $random_terms = array('அன்பு','குறள்','தேடல்','அறன்','காதல்','உலகு','அணங்கு','நெஞ்சு','அறிவு','ஒளி','களவி','ஓசை','சுவை','மாதர்','பொருள்');
 $random_search = $random_terms[array_rand($random_terms,1)];
 $search = $_REQUEST['தேடல்']??$random_search;
