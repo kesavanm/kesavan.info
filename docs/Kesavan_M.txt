@@ -1,0 +1,278 @@
+================================================================================
+@@@     auth            kesavan.muthuvel
+@@@     title           resume of kesavan.m
+@@@     created with    'vi(m)' [TXT version]
+@@@     I don't prefer doc(x) format. I hate it.
+@@@     Has 80 Columns vim command  :match ErrorMsg /\%>80v.\+/
+@@@@@@  for better view, set your editor tab width to 8 space[:se ts=8].@@@@@
+
+================================================================================
+                                RESUME of KESAVAN.MUTHUVEL
+hi@kesavan.info                                                 +1-832-874-4138
+https://kesavan.info                                                 Houston TX 
+irc://moznet /j #webdev                                                 
+================================================================================
+
+OBJECTIVE
+=========
+        To work for the organization with utmost sincerity and with devotion so 
+        that the progeny will remember me forever for the work I have done.
+
+
+TECHNICAL SKILLS
+===================
+        Operating Systems       GNU/Linux[mostly deb based], Win family 
+        Mark Languages          Up:HTML,XML Down:md
+        Database RDBMS          MySQL/Maria family, Sybase, Sharding, Propel
+        Scripting Languages     PHP,SHELL Scripts[BaSH,KSH],Perl,JavaScript
+        Editors aka IDE         VI(M)-as-IDE, @code, JetBrain's PHPStorm & more
+	Good old days		Eclipse PDT, gEdit, Notepad++, Ultra
+        Web Server              Apache
+        Version Control         GIT, SVN & CVS
+	Virtualization		Dockers/Vagrant/VBox
+        Domain                  ENERGY INDUSTRY,HEALTH CARE
+
+PROFESSIONAL SUMMARY:
+=====================
+        · Have 18 years of experience in web software development.
+        · Well played multiple roles from one man army to PoC for a LoB
+        · Good knowledge on Energy industry domain (Natural Electric/Gas) 
+        · Working experience with Heath care domain and X12 formats.
+        · Detailed knowledge and experience of designing, development, testing 
+          & implementation of webapps/software design in the respective projects
+
+WHAT I DO IN MOST TIME
+======================
+        • I love to watch movies based on history/myth/fictional.
+        • Translate and initiate articles on wikipedia .
+        • Talking something no one bothers over nerds on irc #gnu
+        • Find and fix bugs for mozilla.org
+        • Travel around archaeological sites with my Nikon/Canon.
+
+
+EMPLOYMENT HISTORY:
+===================
+Company         Designation             From            To              Duration
+
+Cognizant Technology Solutions  
+                Sr.Associate            Jul 01,2016     Till date       31+months
+                Associate               Nov 01,2010     June 2015       68 months
+                ProgrammerAnalyst       Mar 03,2008     Oct 2010        31 months
+Consim Info Pvt. Ltd            
+                SoftwareEngineer        Aug 01,2007     Feb 29,2008      7 months
+AVNI INFOTAINMENT               
+                PHP Programmer          Nov 01,2006     Jul 31,2007      9 months
+PPP InfoTech                    
+                WebDeveloperTrainee     Mar 01,2006     Sep 30,2006      7 months
+
+Certificates and Rewards:
+==========================
+
+        + Associate of Month,Cognizant     3+  
+        + Associate of Month, HealthCare,Cognizant      February' 2012
+        + Associate of Month, HealthCare,Cognizant      September' 2012
+
+        BRAINBENCH Certificates: Transcript #    8164202
+        ==================================================
+        Programming Concepts                    2009-03-18
+        RDBMS Concepts                          2009-03-19
+        Data Modeling Concepts,S/W Testing      2009-03-20
+        PHP 5 , Linux Administration            2009-11-30
+        MySQL 3.23 Administration               2009-12-03
+
+PROJECT PROFILE: 
+================
+
+Current Project : Digital Transformation for *Direct Energy Inc., US*
+
+        SERVER                  GNU/Linux
+        Scripting Languages     BASH
+        RDBMS                   MySQL, Sharding
+        Web                     PHP , HTML & XML
+        Customer                Direct Energy Inc, US
+        Duration                May 2014 – Till date
+
+        Direct Energy generates electricity and produces natural gas, as well as
+selling commodities and servicing the energy needs of homes and businesses in 
+46+ U.S. states.Direct Energy is a subsidiary of Centrica plc (LSE:CNA), one of
+the world's leading integrated energy companies with over 20 million customers 
+and 34,000 employees worldwide.
+
+        This project is all about the transforming the Direct Energy's business 
+into Digital. Digital Transformation is all about focusing towards Web & Mobile 
+and improve digital sales. The day-to-day activities includes adding new 
+features to web portal and maintenance as well as support towards business 
+operation people over intranet portals.
+
+        We're dealing with processing over 6 million customers data in efficient
+manner, so that the end user feels the better service. The over all goal is 
+Direct,Simple & Friendly.
+
+
+1) PROJECT DESCRIPTION :HP Compare for  *UnitedHealth Group , US*
+
+        SERVER                  RHEL5.6 GNU/Linux
+        Scripting Languages     Perl,KSH
+        RDBMS                   Sybase
+        Customer                United Behavioral Health 
+        Duration                Nov 2013 – April 2014
+
+        United Behavioral Health uses HPCompare as a tool for exchanging Member
+eligibility and group information between its Behavioral business and Medical
+vendors. HPCompare acts as a central platform for all group and member
+eligibility loading. It enables the business to easily monitor the status of
+groups and members as they travelled between UBH and its trading partners.
+HPCompare also supports operational workflows such as error handling and
+status 
+
+2) PROJECT DESCRIPTION: Connectivity Director [2.X,3.X,4.X -13.4] for OPTUM,US 
+        
+        SERVER                  GNU/Linux RHEL5 with Apache 
+        Scripting Languages     PHP , Perl,BASH & JavaScript 
+        Database RDBMS          MySQL 5.5 
+        Framework               Zend Framework 1.6 
+        UI Markups/Tools        HTML, XML , JS 
+        Customers               Aetna/Uniprise 
+        Duration                March 2008 - Nov 2013
+
+Connectivity Director (CD) is a system used to transport health care EDI files
+directly between submitters and the payer. Key Components of CD are Admin Portal
+and Trading Partner Portal(TPP).This version of CD comes with Automated Unit 
+Testing reduces the time in delivery process by minimizing the need of QA 
+resources. The SOAP calls defined for the product are tested against cases 
+pre-defined data, stored in a database.
+
+ Comes with three tier architecture: 
+        o Presentation UI Layer - Specification ,brand specific.  
+        o Application Layer     - Business Logic, Routing, Validation &
+        o Database Layer        - DB Schema.
+
+ Scope of Generic Connectivity Director: 
+        · Strong support towards 5010X12 Files & Multiple Transaction types 
+        · Automated security scanning with FORTIFY 
+        · Improved reporting, administrative and TPP UI 
+
+ ROLES AND RESPONSIBILITIES IN THE PROJECT: 
+        1. Perform On-site and Offshore coordination on regular basis.  
+        2. Handle the Scrum meetings, Sprint Retrospective items.  
+        3. Responsible for implementation of offshore review process,checklist &
+        other quality guidelines set for the project.  
+
+3) CommunEDI Premium 1.4 for OPTUM,US
+
+        CP 5010 Provider Self-Testing Application for Transaction Exchange 
+Clearinghouses.
+
+.Perform On-site and Offshore coordination on regular basis.  
+.Point of contact responsible for coordinating with third-parties & end customer
+
+4) PROJECT DESCRIPTION: BharatMatrimony.Com for CONSIM [Oct2007 - Feb2008]
+
+Leading Matrimony Portal with Highly Designed Hybrid Architecture under LAMP
+over RHEL
+
+Offline Payment System : This module is to upgrade an user to Premium membership
+with Non-Payment Gateway Modes.Here member gets upgraded by paying amount
+directly & Pay-in-Slip are generated [PDF & XLS Format] as receipt.Admin for
+Packages, validity period, regional offers, periodic discounts and a lot.
+
+Bookmark/Ignore/Block System: This feature allows members to
+bookmark/ignore/block opposite gender.  Ignored persons filtered from search
+results. Blocked ones can't view member's info.[for privacy lovers]
+
+RSS/XML Feeds System: This feature allows users to get updates of latest added
+profile feeds from their own RSS/XML reader and even added to it. [My Yahoo!,
+iGoogle ,Live & more.] Feeds are generated on various categories such as
+Regional, Relational, Profession, Education & more.
+
+ROLES AND RESPONSIBILITIES IN THE PROJECT :
+Coding for Bug Fixes, Enhancements and Maintenance of the project
+
+4) PROJECT DESCRIPTION: ClickJobs.com for CONSIM | India's Leading Job Portal.
+
+        Duration                August 2007 - September 2007 
+        Application Stack       LAMP & XML
+
+Google Ads. : Integrating Google Ads with the portal. Here relevant Ads are
+generated by Google Server relevant to the job search keyword .That XML Ads are
+formatted and customized to portal standard.
+
+ROLES AND RESPONSIBILITIES IN THE PROJECT: 
+        Coding for Bug Fixes, Creating partner profiles and Maintenance.
+
+5) PROJECT DESCRIPTION: PropertyExchanges for Jemi Housing Pvt Ltd.
+PropertyExchanges focuses on Real Estate market in south-India.  Users/Brokers
+can register themselves & made advertisement on the portal about their property.
+Search based on multiple filters.
+
+        Duration                June 2007 - July 2006 
+        Application Stack       LAMP
+
+ROLES AND RESPONSIBILITIES IN THE PROJECT: 
+1. Develop both User and Administrator Panel of the site 
+2. Involved in creating database design, and database structure, Coding.  
+3.Develop GUI for WEB pages ,Testing the application/utility
+
+6) PROJECT DESCRIPTION: - JustCall for AVNI On line Version of JustCall ,a 24*7
+running, Query over Call service on any kind of info around city. Any one
+add/update their product info on this site & made available to search by public.
+Interested parties can register with this portal as premium member, whom a
+result are highlighted & gets at top.
+
+        Duration                May 2007 - June 2007 Application Stack  LAMP
+
+ROLES AND RESPONSIBILITIES IN THE PROJECT: 
+1. Involved in creating DB design, and DB structure,Coding.  
+2. Develop GUI for WEB pages.
+
+7) PROJECT DESCRIPTION: The ST Cargo & Travels
+
+        An intra-net project focused on The ST TRAVELS, a Cargo & Travels Co,
+collect cargoes from it branches located mostly in UAE nations & South-East and
+deliver in INDIA. It aimed at fully automotive the entire processes from billing
+a cargo at collecting center to the enduser point.
+
+ROLES AND RESPONSIBILITIES IN THE PROJECT: 
+1. Implementation of both User and Administrator Panel of the site 
+2. Involved in creating DB design, and DB structure,Coding.
+
+
+Miscellaneous Projects: SchoolWalk   : A total solution is build to serve the
+Students for their career.  BudsAndBlooms: A floral e-Commerce Shopping Cart
+site with season discounts.  Regular customers can eShop their choice & door
+delivered
+
+EDUCATION 
+=========
+
+Degree with Branch      College/University                              Year
+=============================================================================
+B.Tech [Info Tech]      RVS College of Engg & Tech [ANNA UNIV]          2005 
+XII                     Madurai Meenakshi Matric Hr. Sec. School        2001 
+X                       Vivekananda Matriculation School,Sholavandan    1999
+
+
+WORK PERMIT     
+=========== 
+Visa Type / Nation : H1B for USA 
+
+
+DECLARATION 
+=========== 
+I hereby declare that the above-furnished details are
+true and correct to the best of my knowledge.
+
+Place : Houston,TX                                              Yours truly,
+Date  : Sep 2015                                                Kesavan.M
+
+
+SHAMELESS SELF PROMOTION 
+======================== 
+• This document is created in open source environment :) [GNU/Linux] 
+• I'm filled selfish genes.Think about my generations before you print this doc.
+
+
+BTW,If you feel bored and wanna look at my mirror cracking snaps,point your
+browser to http://www.flickr.com/photos/k7/sets/
+
+r20140309 <EOD>
