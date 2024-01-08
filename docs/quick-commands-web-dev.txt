@@ -45,7 +45,7 @@ VI(M)
 	:set et
 	:659,723retab!							#tabs to 4spaces from 659 to 723 lines
 
-	
+
 	:so %	" :source (current file name) or :so $MYVIMRC(currently active .vimrc)
 
 
@@ -69,6 +69,14 @@ VI(M)
 	CTRL+W twice 					#lets you toggle between the diff columns
 	ctrl-w l ctrl-w h 				#vim philosipy h-left , l-right
 
+	Turn-On mouse
+	=============
+	
+	:set mouse=a 			<<SHOULD WORK MOST CASE>>
+	
+	:set mouse=n			<<IF YOU'RE IN DIFF WORLD>>
+	:set ttymouse=xterm2
+	
 
 	Vim-as-IDE
 	==========
@@ -77,7 +85,7 @@ VI(M)
 	:set tags=$project/tags			# Set that in .vimrc
 	Ctrl+]	-	Goto Definition		# Play around
 	Ctrl+t	-	Back to Code
-	
+
 	autocmd setlocal tags=/path/to/your/global/c/tags,./tags;/,tags;/
 
 	:set foldmethod=indent
@@ -86,29 +94,29 @@ VI(M)
 	vertical-edit
 	=============
     ctrl+shift+v (or ctrl+v)	# select the column
-		r to replace highlighted text, 
-		d to delete, 
-		c to change... etc.     
-		shift+i to insert text at the beginning of the column, 
-		shift+a to append text 
+		r to replace highlighted text,
+		d to delete,
+		c to change... etc.
+		shift+i to insert text at the beginning of the column,
+		shift+a to append text
     ESC 						#when done. !!!DONT FORGET ME!!!
 
 	explorer
 	========
-	:e ~/path/to/file - Opens the file as a buffer. 
+	:e ~/path/to/file - Opens the file as a buffer.
 
 	:sp ~/path/to/file - Opens the file in a new (Window) view port.
 	:Bclose - Close the particular buffer. :q should be avoided unless need.
 	:tabe ~/path/to/file - Opens for edit in a tab. Use :tabclose once done.
 	:Sex ~ or :Sexplore - Opens a quick (split) explorer of the argument (Home dir ~   in this case)
 	:Tex & :Vex - Native vim options beside :Sex
-	
+
 mc	# midnight commander
 
 	C-o		# switch to shell <> shell
 	A-s		# search pattern, the cursor will jump to the matches sequentially
 	C-\		# directory hotlist
-	
+
 BASH
 
 	Find files (man find ; or link http://en.wikipedia.org/wiki/Find)
@@ -155,8 +163,8 @@ BASH
 	find / -iname "*checkin*" -exec grep 'Confirm Password' {} \;
 
 	find . -type f -exec grep -H PATTERN '{}' \;  2>/dev/null	#NO SYMB LINK FOLLOW
-	
-	
+
+
 	find  . -name '*php'   -exec grep -ilHn --color=always pattern {} \; -exec grep -n pattern {} \;
 
 	Grep files with a particular string in the file name
@@ -170,12 +178,12 @@ BASH
 											# -(A)bove (B)elow (C)ombined
 
 	grep -ir --include \*.php pattern  ./*	# only particular file type , recursive
-	
-	
+
+
 	grep-with-regex
 	===============
 	ifconfig  | grep -E  'inet\W' |awk -F ":" '{print $2}' |awk  '{ print "\033[1;34m" $1 "\033[0m" }'
-	
+
 
 	#Numbering the occurance
 	perl -ne 'print ++$a." $_" if /pattern/' file.ext
@@ -188,13 +196,13 @@ BASH
 	  136 mp3
 		3 mp4
 
-	#fzf - quick find/search for a file	
+	#fzf - quick find/search for a file
 	updatedb --require-visibility 0 -o ~/.locate.db		#indexing locally
 	locate
-	
+
 	Xargs
 	=====
-	
+
 	ll /tmp/*wsdl-bou*|grep 'Jul 24'|awk '{print $9}'|xargs rm		# list files of date & remove them
 	ls -a | grep \~ | xargs mv -t tmp+bak+tilde						# list files with ~ & move them
 
@@ -257,11 +265,11 @@ BASH
 	RES in top ? (may be RSS of ps? . I assume so!
 
 	htop
-	
+
 	echo -ne $(cat color-coded-file.txt | sed  's/$/\\n/' | sed 's/ /\\a /g')	#read your files with colors
 
 	shopt -s -o ignoreeof	#prevent accidental logout
-	
+
 	Disk Usage
 	==========
 		du -sch * 2>/dev/null				# disk usage by every file/directory
@@ -303,9 +311,9 @@ BASH
 	Check who configured what:
 	==========================
 	for user in `/bin/ls /data/`; do for envdb in `find /data/$user -maxdepth 5 -type f -name 'env_db.php'` ; do grep -E 'DB_DATABASE|DB_SLAVE_DATABASE|DB_WEATHER_DATABASE' $envdb|grep 'define(' |awk {'print $2 '}|sort|uniq |xargs echo -e "$user - $envdb \t\t -" ; done; done
-	
+
 	TEE
-	===	
+	===
 	((main_job|tee /dev/fd/5|job_1 >/dev/fd/4)5>&1|job_2)4>&1
 	((main_job|tee /dev/fd/5|(job_2 >/dev/fd/4))5>&1|job_1)4>&1
 	(( ps -ef | tee /dev/fd/5 |grep wow >/dev/fd/4 ) 5>&1 | grep cmprod)4>&1
@@ -375,6 +383,20 @@ MySQL
 	mysql -hlocalhost -ukmuthuvel -pXXXXXXXXXXXX kmuth_new < my_database.routines.sql
 	mysqldump -h<host> -u<username> -p<password> <database> --no-data --no-create-db --no-create-info --skip-opt --triggers > trigger.sql
 
+	
+	SUB-SQLs
+	========
+	LEFT JOIN (a INNER JOIN b ON b.id = a.attr_id AND b.name = 'key_attr' ) ON a.order_id = o.id	-- optimal
+	LEFT JOIN a ON a.order_id = o.id AND a.attr_id = (SELECT id from b WHERE name = 'key_attr')		-- 6x slow
+	LEFT JOIN a ON a.order_id = o.id AND a.attr_id = 123											-- 2x slow, hardcoded
+
+	
+	Disable/Enable Strict mode
+	====================
+	SELECT @@GLOBAL.sql_mode;
+	SET @@GLOBAL.sql_mode=''
+	SET @@GLOBAL.sql_mode='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
+	
 PHP
 	ob_start();var_dump(); user_error(ob_get_contents()); ob_get_clean();
 	debug_print_backtrace()
@@ -461,6 +483,10 @@ PHP
     fwrite(STDERR, $write);
 }
 
+
+MemCache
+	echo 'flush_all' | nc localhost 11211
+
 GIT
 	Normal Flow
 	===========
@@ -529,6 +555,13 @@ GIT
 	git reset --hard  2454tb6
 	git push -f origin kmuth-branch
 
+	submodules
+	==========
+	git submodule add [-b master --depth 1]  https://github.com/junegunn/fzf.git	# add/init
+	git submodule init
+	
+	git submodule update --init --recursive											# update	
+    git submodule deinit -f - fzf; rm -rf .git/modules/fzf; git rm -f fzf			# remove/deinit
 
 	Revert To Original/Old - Entire directory (code base)
 	=====================================================
@@ -572,6 +605,41 @@ GIT
 			#removed all the commit messages
 			>>Successfully rebased and updated refs/heads/kmuth-hot-fix.
 		git push -f origin kmuth-hot-fix
+		
+		
+		#Messed with some other branch stuff ?		
+		git branch -D feature_branch
+		git checkout developemnt
+		git fetch origin && git pull
+		git checkout  feature_branch
+		git log
+		# pick some recent 4-5 old commit
+		git rebase -i b223f604	# or git rebase -i HEAD~5
+		#pick/drop/squash
+		git push -f origin feature_branch
+
+		
+	Undo rebase
+	===========
+		git reflog  --date=iso branch		#1 of 3 - REFLOG the current branch
+		git reset --hard 81ca2476a4			#2 of 3 - RESET to COMMIT before rebase
+		git push -f origin branch			#3 of 3	- Just PUSH, nothing to commit/add
+	
+		Example
+		~~~~~~~
+		$git reflog  --date=iso faq2
+		5e887715b9 (HEAD -> faq2, origin/faq2) faq2@{2020-03-30 12:45:58 -0500}: rebase -i (finish): refs/heads/faq2 onto 6b1b4c68c24976163da779b1701a9da461882d31
+		cb991118aa faq2@{2020-03-30 12:44:27 -0500}: commit: revert of other misc files
+		132a17e7d7 faq2@{2020-03-30 12:35:50 -0500}: rebase -i (finish): refs/heads/faq2 onto 6b1b4c68c24976163da779b1701a9da461882d31
+		81ca2476a4 faq2@{2020-03-30 12:34:21 -0500}: commit: little tuning
+		ba6fcc377c faq2@{2020-03-30 12:02:34 -0500}: branch: Created from refs/remotes/origin/faq2
+		0 ✓ success ^_^  ________________________________________________________________________________
+		kmuthuvel@L18726(98.198.59.144)|/srv/www/code_de|2020-03-30 13:13:09[faq2]
+		$git reset --hard 81ca2476a4
+		HEAD is now at 81ca2476a4 little tuning
+		0 ✓ success ^_^  ________________________________________________________________________________
+		kmuthuvel@L18726(98.198.59.144)|/srv/www/code_de|2020-03-30 13:15:17[faq2]
+		$git push -f origin faq2
 
 	Squashing with conflict resolved merges
 	=======================================
@@ -650,7 +718,7 @@ GIT
 		git status;git add file1 file2 ;				#8 add files and status
 		git commit -m 'Reports enchanced'				#9 commit changes
 		git push -u origin new_enchancements			#10 done!
-		
+
 		[Option #2]
 		$git push -u -f origin fix-pogo-bulk-orders
 		Counting objects: 2, done.
@@ -666,6 +734,9 @@ GIT
 		 + a752aaa...cf10736 fix-pogo-bulk-orders -> fix-pogo-bulk-orders (forced update)
 		Branch fix-pogo-bulk-orders set up to track remote branch fix-pogo-bulk-orders from origin.
 
+	git clone over slow network
+	============================
+		git clone  --depth 10 user@example.org:awesome/project.git project.mini
 
 	Diff & Logs
 	===========
@@ -682,10 +753,10 @@ GIT
 
 		git log -Spattern -- orders_report.php	#accepts a string
 		git log -Gpattern -- orders_report.php	#accepts a regex
-		
-		git grep [-e] case_sensitive_pattern ro 
+
+		git grep [-e] case_sensitive_pattern ro
 		git grep -i case_insenstive_pattern
-		
+
 		git log --grep=word			#find all commits where commit message contains given word
 
 		git show 211dbe40cd784b06932122f7ba67d656ed438b01	# Particular commit
@@ -703,6 +774,7 @@ GIT
 		git log --no-merges master
 
 		git log --all -- this-is-deleted-file.pl			#who deletes this file ; tracks all the history of file that got deleted.
+		git log --all --full-history -- "**/filename.ext"	# from the root of repo 
 
 		#List all the modified files for a commit (better version below)
 		git diff-tree --no-commit-id --name-only -r 2bc51f53a15da1428f8320d9ee93f8e7069a05a2
@@ -716,9 +788,12 @@ GIT
 		git diff --name-only | xargs  ls -lt 		# latest modified files
 
 		git log --name-only --pretty=format:"%H - %h - %an, %ar : %s"  --author=kmuthuvel  --walk-reflogs   my_hot_fix			# log on only that specific branch
-		git log --stat --oneline --pretty=format:"%h - %an, %ar : %s" --author="\(kmuthuvel\)\|\(raju\)" --walk-reflogs welcome-offshore		
+		git log --stat --oneline --pretty=format:"%h - %an, %ar : %s" --author="\(kmuthuvel\)\|\(raju\)" --walk-reflogs welcome-offshore
+
+		git log --date=local --pretty=format:\%h%x09%C\(cyan\)%an%x09%ad:%Creset%s parameters.yml.dist
+		git log --date=short --pretty=format:\%h%x09%C\(cyan\)%ad%C\(green\)%x09%an%Creset%x09%s parameters.yml.dist
 		
-		#team work on date wise		
+		#team work on date wise
 		git log --date-order --date=iso  --pretty=format:'%C(cyan)%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08 %C(red)%h  %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s' --after="2019-01-01"  --author="\(Kesavan\)\|\(kmuth\)"
 
 		GIT TIME maching
@@ -746,7 +821,7 @@ GIT
 		git log --graph --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n" --color --all
 		git log --graph --pretty=format:"%x1b[31m%h(green)%ad %x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m" --date=short --full-history --all --color
 
-		
+
 		Changed files:
 		==============
 		git diff --name-only development
@@ -813,17 +888,123 @@ GIT
 		======================
 		git reset HEAD^ --hard
 		git push origin/branch_name -f
-		
+
 		#bring a clean env
 		git update-index --assume-unchanged  .gitignore
 		git update-index --no-assume-unchanged .gitignore
-	
+
 	Merge into MASTER
 	=================
 		git checkout master
 		git pull               # to update the state to the latest remote master state
 		git merge develop      # to bring changes to local master from your develop branch
-		git push origin master # push current HEAD to remote master branch	
+		git push origin master # push current HEAD to remote master branch
+
+COMPOSER
+		COMPOSER_MEMORY_LIMIT=-1 composer update
+
+		
+APACHE
+	Disable/Enable modules
+	======================
+	sudo a2dismod php5.6
+	sudo a2enmod php7.3
+
+
+		
+AWS/Cloudwatch/Console/InSight
+
+	fields @timestamp, @message
+	| filter @logStream like "web-prod"
+	| filter @message like "80108216905"
+	| sort @timestamp desc
+	| limit 20
+
+	fields @timestamp, @message
+	| filter @logStream like "web-prod"
+	| filter @message like "MyaccountPay.getWalletInformation.error" 
+	| parse @message '"RequestID":"*",' as @RequestID
+	| parse @message 'payment_event: order-*-' as @order
+	| parse @message 'error @*:' as @ip        
+
+	fields @timestamp, @message
+	| filter @logStream like "web-prod"
+	| filter @message like "MyaccountPay.getWalletInformation.error" 
+	| parse @logStream /(?<@brand>([a-z]+))-web-prod/
+	| stats count(*) by bin(1d)
+
+
+	fields @timestamp, @message
+	| parse @message /(?<@ip>^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})[.]*)/
+	| stats count() as requestCount by @ip
+	| sort requestCount desc
+
+	PARSE & ESCAPE & SHOW/HIDE(DISPLAY)
+	===================================
+	fields @timestamp, @message , @logStream
+	| filter @message like 'MyaccountPay.getAutoPayment.error'
+	| parse @logStream "*-" as  @brand 
+	| parse @message "order-*-*OperationResult\":\"*\",*}" as @order_id,@misc, @OperationResult,@rest
+	| sort @timestamp desc
+	| display @timestamp, @brand ,@order_id, @OperationResult
+
+	
+	fields @timestamp, @message, @logStream
+	| filter @message like '//powertochoose.'
+	| filter @message like 'msid/3051/pid'
+	| parse @message '/texas/electricity-plans/*/msid/*/pid/' as @plan_misc,@msid
+	| parse @message /(?<@ip>^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})[.]*)/
+	| parse @message 'utm_source=*&utm_medium=* ' as @utm_src, @utm_medium
+	| parse @message 'http://*Plan/Results' as @ref
+	| parse @logStream /(?<@brand>([a-z]+))-web-prod/
+	| parse @log  'var/log/httpd/*' as @file 
+
+	Logical OR condition
+	====================
+	fields @timestamp, @message ,@logStream , @log
+	| filter @logStream like 'cruncher-prod-i-0d90d48ac1355ec63'
+	| filter @log  like '457289674159:/var/log/core.log'
+	| filter @message like /(Importer: Beginning Import files|Importer: Completed Import)/
+
+	HTTP Status Code from /var/log/httpd/access_log
+	================================================
+	fields @timestamp, @message,@logStream, @log
+	| parse  @message "* - - [*] \"* " as @ip,@datetime,@method,@misc
+	| parse  @misc "* *\" * * * *" as @uri,@protocol,@code,@size,@referer,@user_agent
+	| fields @timestamp, @message,@logStream
+	| limit  10
+	
+	Last 5 500 Error HTTP Status Code from /var/log/httpd/access_log
+	================================================================	
+	parse @logStream /(?<@brand>([a-z]+))-web-prod/
+	| parse  @message "* - - [*] \"* " as @ip,@datetime,@method,@misc
+	| parse  @misc "* *\" * * * *" as @uri,@protocol,@code,@size,@referer,@user_agent
+	| filter @code = '500'
+	| limit  5
+	| fields @logStream, @log 
+	| display @brand, @ip, @datetime, @method, @uri, @protocol,@code,@size,@referer,@user_agent,@logStream,@log
+
+
+	REGEX with logical OR condition and  CASE insensitive condition
+	===============================================================
+	fields  @timestamp, @message ,@logStream , @log
+	| filter @logStream like 'fcp-cruncher-prod-i-0d90d48ac1355ec63'
+	| filter @log  like '457289674159:/var/log/fireengine/core.log'
+	| filter @message like 'ERCOT Importer'
+	| filter @message like /(?i)(Beginning IMpOrT files|CompleTEd Import)/
+	| sort   @timestamp asc
+	| limit  10
+
+	fields @timestamp,@logStream, @message 
+	| filter @logStream like 'fcp-web-prod'
+	| filter @message like 'CreateNewAccountNumber'
+	| filter @message like 'exception="1"'
+	| parse @message 'action="*"' as @action
+	| parse @message 'exception="*"' as @exception 
+	| parse @message 'exception_message="*"' as @exception_message
+	| stats count(*) by bin(1d), @exception_message
+
+
 
 Splunk
 
@@ -843,54 +1024,54 @@ Splunk
 	//Multi XML element extraction
 	host="de-w*" credit_check_id|rex field=_raw "\<order_id\>(?<order>[^\<]+)" | rex field=_raw "\<credit_check_id\>(?<credit_check_id>[^\<]+)"|table _time credit_check_id order
 	host="de-w*" credit_check_id|rex field=_raw "\<order_id\>(?<order_id>[^\<]+)" | rex field=_raw "\<credit_check_id\>(?<credit_check_id>[^\<]+)"| rex field=_raw "\<customer_id\>(?<customer_id>[^\<]+)"|table _time credit_check_id order_id customer_id | sort -_time
-	
+
 	index="de_apps_containers"  carom  rule |table _time _raw
 	index="de_apps_containers" "apps_apps-nginx" "de-admin" (upstream OR 504)
-	
-	cakeerror index="tigger_log" | stats count by host | sort - count 
+
+	cakeerror index="tigger_log" | stats count by host | sort - count
 	cakeerror index="flubbar_log"
-	
+
 	index="php_error_log" host="de-w01"
-	
+
 	host="de-w*" address-unserviceable | table _time ip host phpsessid|  iplocation ip  table clientip, status, City,State, Country
-	host="de-w*" address-unserviceable |table _time ip phpsessid host sourcetype | iplocation ip  clientip, status, City,State, Country | stats count by  Region | sort - count	
-	
-	"/address-unserviceable" source="*access.log" |  convert timeformat="%m/%d/%Y" ctime(_time) AS datex | table datex| stats count by  datex 
-	
-	index="de_apps_containers" admin "timed out"   proxy_read_timeout 180;	
-	
+	host="de-w*" address-unserviceable |table _time ip phpsessid host sourcetype | iplocation ip  clientip, status, City,State, Country | stats count by  Region | sort - count
+
+	"/address-unserviceable" source="*access.log" |  convert timeformat="%m/%d/%Y" ctime(_time) AS datex | table datex| stats count by  datex
+
+	index="de_apps_containers" admin "timed out"   proxy_read_timeout 180;
+
 	code=5** OR code=4** |  stats count by host, code | eventstats sum(count) as hostx by host| eval percent=count/hostx |
 	table host,code,count,percent|timechart span="1d" count
 
 	code=5** OR code=4** |  stats count by host, code |timechart span="1d" count
 
-	code=5** OR code=4** | iplocation ip  clientip, status, City,State, Country|eval  os = case(match(user_agent,"Windows .. 5\.1"),"Windows XP",match(user_agent,"droid"),"Android",  match(user_agent,"Windows NT 610"),"Win10", match(user_agent,"Mac"),"Mac",match(user_agent,"Windows NT 6.1"),"Windows 7",match(user_agent,"iPhone"),"iPhone")| eval browser = case(match(user_agent,"MSIE 10.0"),"Internet Explorer 10.0",match(user_agent,"Trident"),"IE11", match(user_agent,"Chrome"),"Chrome",match(user_agent,"Safari/"),"Safari") | eval arch = case(match(user_agent,"droid"),"android",match(user_agent,"iPad"),"ipad",match(user_agent,"iPod"),"ipod") |  table host code uri method sourcetype request_time referer user_agent os browser ip,City,State, Country 
+	code=5** OR code=4** | iplocation ip  clientip, status, City,State, Country|eval  os = case(match(user_agent,"Windows .. 5\.1"),"Windows XP",match(user_agent,"droid"),"Android",  match(user_agent,"Windows NT 610"),"Win10", match(user_agent,"Mac"),"Mac",match(user_agent,"Windows NT 6.1"),"Windows 7",match(user_agent,"iPhone"),"iPhone")| eval browser = case(match(user_agent,"MSIE 10.0"),"Internet Explorer 10.0",match(user_agent,"Trident"),"IE11", match(user_agent,"Chrome"),"Chrome",match(user_agent,"Safari/"),"Safari") | eval arch = case(match(user_agent,"droid"),"android",match(user_agent,"iPad"),"ipad",match(user_agent,"iPod"),"ipod") |  table host code uri method sourcetype request_time referer user_agent os browser ip,City,State, Country
 
 	"QuickPay error: msg='Server was unable to process request. ---> CISTranslator.CISTranslatorException: System.NullReferenceException: Object reference not set to an instance of an object." order_id |eval hostx= case(match(host,"de-w*"), "de",match(host,"wtu-w*"), "wtu",match(host,"fcp-w*"), "fcp",match(host,"cpl-w*"), "cpl") |table hostx,_time|timechart span="1month" count by hostx
 
-	
-	/api/v1/dye/bill/cycle code=500|table _time phpsessid ip code _raw | eval session = case(match(phpsessid,"-"),"empty", !match(phpsessid,"-"),"not-empty") | 
+
+	/api/v1/dye/bill/cycle code=500|table _time phpsessid ip code _raw | eval session = case(match(phpsessid,"-"),"empty", !match(phpsessid,"-"),"not-empty") |
 stats count by session | eventstats sum(count) as perc | eval perc=round(count*100/perc,2)
 
-	(host="de-w*" OR host="fcp-w*" ) index="access_log" sourcetype="access_log" (date_hour>=4 date_hour<=5) (date_wday=tuesday ) | 
-	eval  brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp"    ) | table _time ip brand 
+	(host="de-w*" OR host="fcp-w*" ) index="access_log" sourcetype="access_log" (date_hour>=4 date_hour<=5) (date_wday=tuesday ) |
+	eval  brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp"    ) | table _time ip brand
 	| timechart span="1d" dc(ip) count by brand
 
 
-	(host="de-w*" ) index="access_log" sourcetype="access_log" (date_hour>=5 date_hour<=5) (date_wday=tuesday )|  
+	(host="de-w*" ) index="access_log" sourcetype="access_log" (date_hour>=5 date_hour<=5) (date_wday=tuesday )|
 	eval brand = case(match(host,"de-w"),"de",match(host,"fcp"),"fcp")|timechart span="1d" dc(ip)
 
 	#7 day weekly view - Peak day reporting
 	host="de-w*" code=500 index=access_log  | convert timeformat="%A" ctime(_time) AS c_time |chart count by c_time
 
 	#24 Hour View - Peak Hour reporting
-	host="de-w*" code=500 index=access_log  | convert timeformat="%H" ctime(_time) AS c_time | table uri c_time | chart count by  c_time	
+	host="de-w*" code=500 index=access_log  | convert timeformat="%H" ctime(_time) AS c_time | table uri c_time | chart count by  c_time
 
 	host="de-w*" code=500 index=access_log | table uri | top limit=20 uri |  convert timeformat="%m/%d/%Y" ctime(_time) AS datex | table datex|timechart count by datex
 
 
 NRQL
-	SELECT COUNT(*) FROM TransactionError WHERE  httpResponseCode = 500 AND  `request.headers.referer` LIKE '%/pogo/search' AND SERVER_NAME ='www.example.com' AND timestamp > 1548201600  AND timestamp < 1549584000 AND  timestamp > 1549670399 AND timestamp <   1550880000 
+	SELECT COUNT(*) FROM TransactionError WHERE  httpResponseCode = 500 AND  `request.headers.referer` LIKE '%/pogo/search' AND SERVER_NAME ='www.example.com' AND timestamp > 1548201600  AND timestamp < 1549584000 AND  timestamp > 1549670399 AND timestamp <   1550880000
 
 MS SQL
 	SELECT TOP 10 * FROM SMT.ESIIDMaster WHERE ESIIDID = 566455 ;
@@ -954,14 +1135,14 @@ DOS
 
 	MOUNT
 	wmic logicaldisk get caption,description,drivetype,providername,volumename
-	
+
 	SHORTCUT FOR INET OPTIONS
-	
+
 	C:\Windows\System32\control.exe Inetcpl.cpl,Connections,4
-	
-	#stored Wifi	
+
+	#stored Wifi
 	for ssid in `netsh wlan show profiles|grep "All User" | awk  -F: '{print $2}'` ; do; netsh wlan show profile name=$ssid key=clear |grep -E 'SSID name|Key Content' ; done;
-	
+
 	#find for files
 	DIR /B /S /R /O:N /W *sample*
 
@@ -1000,15 +1181,22 @@ Excel
 	=======
 	=VLOOKUP(NEEDLE,L$5:L$9,1,FALSE)					# String search
 	=VLOOKUP($NEEDLE&"*",'sheetx'!$A$1:$Z$26,2,FALSE)	# Partial string search
-	
+
 	=TEXT(J13 -F13, "d"" days ""h"" hrs ""m"" mins """)
-	
+
 	Pivot Data Range : Analyze >> Data >> Change Data Source
-	
+
 	To seconds
 	==========
 	=TEXT(F155-E155,"[s]")
-	
+
+
+SHAREPOINT/WINWORD CACHE
+
+
+	%userprofile%\Local Settings\Temporary Internet Files\Content.MSO\
+
+
 ShortCuts
 	HeidiSQL REDO SHIFT+ALT+BACKSPACE
 
@@ -1016,71 +1204,109 @@ GNU/Linux
 
 	`ldconfig` is a program that is used to maintain the shared library cache. This cache is typically stored in the file /etc/ld.so.cache and is used by the system to map a shared library name to the location of the corresponding shared library file.
 	Usage :  ldconfig -v  will make new  programs ,ex gpg2 was able to find libksba.so.0
-
+	#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/instantclient_19_6
+	#validate library file for linked libs using ldd 
+	ldd  /usr/lib/instantclient_19_6/libsqora.so.19.1
 
 	Performance/Tuning/Cleanup
 	==========================
 	. .profile.open	# ( https://github.com/kesavanm/handy-tools/blob/master/.profile.open)
 	cleanit
 	cleandebs
-	
-	
-	Better Booting 
+
+	find .  -maxdepth 1 -type d  -exec du -hs {} \;						#list files usage
+	find . -size +5M -type f -mtime -3 -exec ls -larht {} \;			#greater than 5MB
+
+	du -S . | sort -nr | head -25
+
+	du -ch -d 1 | sort -hr
+
+	du -ch -t 100m	# list only files which are bigger than 100 MB r
+
+	$du -Pshxc .* 2>/dev/null
+	716M	.
+	658M	..
+	1.4G	total
+
+	$sudo du -h /home/ | grep -P '^[0-9\.]+G'
+	1.1G	/home/kesavan
+	2.3G	/home/
+
+	space cleaning tools
+	-------------------
+
+	tdu , gt5 , & ncdu
+
+
+	Better Booting
 	==============
 	systemd-analyze plot > Desktop/boot.svg
 	systemd-analyze blame
 	systemd-analyze critical-chain
-	service --status-all 
-	
+	service --status-all
+
 
 thulasi@thulasi-Inspiron-15-3567(49.204.208.161)|~|2019-01-01 20:36:46
-$systemctl disable mysql.service 
+$systemctl disable mysql.service
 Synchronizing state of mysql.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install disable mysql
 
-	
-	
+
+
 	sudo systemctl disable mysql.service
-	$history | tail 
- 1007  2019-01-01 20:19:45 systemd-analyze --user blame 
- 1008  2019-01-01 20:20:20 systemd-analyze --system blame 
+	$history | tail
+ 1007  2019-01-01 20:19:45 systemd-analyze --user blame
+ 1008  2019-01-01 20:20:20 systemd-analyze --system blame
  1009  2019-01-01 20:28:21 sudo systemctl disable mysql.service
  1010  2019-01-01 20:28:47 sudo systemctl mask mysql.service
  1011  2019-01-01 20:30:35 systemctl status mysql.service rvice
  1012  2019-01-01 20:31:43 sudo systemctl unmask mysql.service
  1013  2019-01-01 20:31:48 systemctl status mysql.service rvice
- 1014  2019-01-01 20:32:24 systemctl status mysql.service 
- 1015  2019-01-01 20:36:33 systemd-analyze --user critical-chain 
- 1016  2019-01-01 20:36:46 history | tail 
+ 1014  2019-01-01 20:32:24 systemctl status mysql.service
+ 1015  2019-01-01 20:36:33 systemd-analyze --user critical-chain
+ 1016  2019-01-01 20:36:46 history | tail
 0 ✓ success ^_^  ________________________________________________________________________________
 thulasi@thulasi-Inspiron-15-3567(49.204.208.161)|~|2019-01-01 20:36:46
 
-	
-	
+
+
+
+	Display: - custom resolution
+	============================
+	cvt 1920 1080
+	sudo xrandr --newmode  "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+	sudo xrandr --addmode eDP-1 "1920x1080_60.00"
+
+
+
 	C:\Users\kmuthuvel\AppData\Local\Microsoft\Windows\Temporary Internet Files\Content.Outlook\18C17SJ6
 
 Firefox
 	general.useragent.locale	ta-IN	about:config
 	595c99c907d7bc86620ebe8bc7f23532b8428468	password-1
 
-	
+
 GNU/Screen:
 
-	export SCREENDIR=$HOME/S-kmuthuvel
+	export SCREENDIR=$HOME/S-$USER
 	
+	screen -S <label>	# create a new screen instance with one terminal
+	screen -r <label>	# attach to particular `label` screen
+	
+
 	==Windows==
     Split  	: ^a-S   ^a-| (Horizontal/Vertical)
     Un-split: ^a-Q   ^a-X (All / Active)
-	Navigate: ^a-TAB 
-	
+	Navigate: ^a-TAB
+
 	==Consoles==
 	Switching: ^a-p ^a-n ^a-" (prev/next/list)
-	
+
 	==Session==
 	start/resume: screen [-r resume , -D -RR - do whatever but get me in]
-	end/detach	: ^a-d  , 
+	end/detach	: ^a-d  ,
 	sessions	: -ls, -list
-	
+
 	lock: ^a-x
 
 	Note: After splitting, you need to go into the new region and start a new session via ctrla then c before you can use that area.
@@ -1098,10 +1324,68 @@ GNU/Screen:
 	C-a :resize 75%		#increases 75%
 	C-a :resize -h +10 	#increases the size 	#horizantal
 	C-a :resize -v -10 	#decreases the size		#vettical
-	
-PHPStrom
-		Code fold at method level - CTRL+SHIFT+NumPad *, then (regular)1.
+
+
+Phinx
+
+	phinx.yml
+	=========
+
+	paths:
+		migrations: %%PHINX_CONFIG_DIR%%/migrations/{all,%%PHINX_MIGRATION_BRAND%%}
+
+	environments:
+		development:
+			adapter: mysql
+			host: localhost
+			name: dbname
+			user: james
+			pass: nothing
+			port: 3306
+			charset: utf8
+	version_order: creation
+
+    PHINX_MIGRATION_BRAND=abc ./phinx status -e development
+
+
+PHPStrom/PSR/IDE
+		Code fold at method level - CTRL+SHIFT+NumPad *, then (regular)1. CTRL+SHIFT+NumPad * [1-5] 1 FOLD ,5 UNFOLD ALL
+		CTRL+ALT+l - Basic PSR 
 		
+		REGEXP
+		(.*alert)(.*something went wrong)
+		
+		xDebug integration
+		==================
+		F9 - Simply checking at breakpoints - 
+		F8 - Step-Over - statement by statement from the breakpoint
+		Shift-F8 - Step-Out - goto next breakpoint 
+		
+		xdebug.remote_host=localhost	#for local/remote
+		
+		#local
+		xdebug.remote_connect_back=Off
+		
+		#remote 
+		ssh -R 9000:localhost:9090 user@abc.xyz-hosting-provider.com	#keep it on until debugging done
+		xdebug.remote_connect_back=On
+
+		
+		https://www.php-fig.org/psr/psr-2/#46-method-and-function-calls
+		
+		
+		Atom:		
+			Network/FireWall connectivity issue?				
+				process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0	#C:\Users\user\.atom\init.coffee
+				cd C:\Users\user\AppData\Local\atom-beta\app-1.51.0-beta0\resources\app\apm\bin
+				apm config set strict-ssl false
+			DBGP/PathMapping
+				[{"remotePath":"/mnt/c/Users/kmuthuvel/workspace/sonar2","localPath":"C:/Users/kmuthuvel/workspace/sonar2"}]
+
+		VS Code
+			DBGP/PathMapping
+				"pathMappings": { "/mnt/c/Users/kmuthuvel/workspace/sonar2": "${workspaceRoot}" },
+
 		
 Mozilla
 	security.enterprise_roots.enabled	# false to handle Peer’s Certificate issuer is not recognized.
@@ -1111,3 +1395,20 @@ Windows/TMP/CACHE/Cleanup
 	%TMP%
 	ipconfig /flushdns
 	Disk Cleanup
+
+
+Windows / WSL
+	Reboot Ubuntu for WSL
+	
+	
+	sudo killall -r '.*'
+
+	# CMD (admin)
+	net stop LxssManager
+	net start LxssManager
+
+
+Network
+
+	sudo tcpdump -s 0 port 80 or 443 -i any -w capture.pcap & 
+	netstat -an

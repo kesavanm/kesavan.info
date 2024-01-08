@@ -98,7 +98,6 @@ Moreover understand How the Internet works on <a target="_blank" href="http://en
 	
 	</ul>
 	
-	
 
 	<center><h3><u>Security</u></h3></center>
 	<h4>SQL Injection</h4>   
@@ -133,23 +132,13 @@ Moreover understand How the Internet works on <a target="_blank" href="http://en
 	<td> 		
 		
 	<ul> <b><u>I'm available most time @</u></b>
-		<li>kesavan over <a target="_blank" href="irc://irc.gnu.org/gnu">#gnu on GNU</a>&mdash; the <em>official</em> GNU Project Channel</li>
-		<li>kesavan over <a target="_blank"  href="irc://moznet/webdev"> #WebDev on MozNet</a>&mdash; the Open and Free web</li>
-
+		<li><code>kesavan</code> over <a target="_blank" href="irc://libera.chat/gnu"><b>#gnu</b> on libera</a>&mdash; the <em>official</em> GNU Project Channel</li>
+		<li><code>kesavan</code> over <a target="_blank" href="https://chat.mozilla.org"> <b>Mozilla General</b> at Matrix</a>&mdash; the Open and Free web</li>
 	</ul>
 	</td> 
 	</tr>
 	</table>
 	
-	
 <?
 include('tail.php');
 ?>
-
-
-
-
-
-
-
-

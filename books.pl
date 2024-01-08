@@ -39,6 +39,8 @@ my @books_loc = (
 "/home/kesavan/apps/nextcloud/data/kesavan/files/books2/"
 );
 
+my $conflicts = qr/CONFLICT/i; # Replace with your desired pattern using regular expression
+
 foreach my $dir(@books_loc){
 	print genTable($dir);
 }
@@ -52,7 +54,9 @@ sub genTable {
 
 	opendir(DIR, $dir) or die $!;
 	while (my $file = readdir(DIR)) { 
-		next if ($file =~ m/^\./);				#ignore files beginning with a period
+		next if ($file =~ m/^\./);	#ignore files beginning with a period
+		next if $file =~ /$conflicts/;	#ignore sync conflicted items
+
 		my $st = stat($dir.$file) or die "No $dir/$file: $!";	#print Dumper($dir, $file );	
 		my $timestamp = ctime(stat($dir.$file)->mtime);	
 		#my $ft        = File::Type->new();

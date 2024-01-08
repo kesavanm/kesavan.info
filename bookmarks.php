@@ -41,8 +41,9 @@ $bookmarks = array(
 				'phet-simulations'	=> 'http://phet.colorado.edu/en/simulations/category/new',
 				'seasons-simulator'	=> 'http://astronomy.beamappzone.com/?m=simulations',
 				'3d-appzend-simulator'	=> 'http://solarsystem.appzend.net/?q=solarsimulator1',
-				'pioneer-10-plaque'	=>'http://earthspacenews.com/plaque-pioneer-10/',
-				'5th-dimension'		=>'http://en.wikipedia.org/wiki/Wikipedia:Reference_desk/Archives/Science/2012_August_17#physics.2F5th_Dimension',
+				'pioneer-10-plaque'	=> 'http://earthspacenews.com/plaque-pioneer-10/',
+				'5th-dimension'		=> 'http://en.wikipedia.org/wiki/Wikipedia:Reference_desk/Archives/Science/2012_August_17#physics.2F5th_Dimension',
+				'universal-wonders'	=> 'https://www.bbc.co.uk/ideas/playlists/universal-wonders',
 					),
 		'trip/travel' => array(
 				'india-art-and-archaeology' 	=> 'http://www.art-and-archaeology.com/india/india.html', 

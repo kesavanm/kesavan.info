@@ -2,21 +2,24 @@
 $line1 = array(
 	'index'	=> 'Index',			'bookmarks'	=> 'Bookmarks',		'support'	=> "I'm supporting",
 	'about'	=> 'More info? (About me!)',	'thunder'	=> 'Royal Thunderbird!','n900'		=> 'Maemo N900',
-	'e960'	=> 'Nexus 4 (Android + more  )','kodi'		=> 'KODI [aka] XBMC <img src="images/new.gif">',
+	'e960'	=> 'Nexus & Pixel (Android + more  )','kodi'		=> 'KODI [aka] XBMC <img src="images/new.gif">',
 	'gpg'	=> 'My Public Key (GPG) <img src="images/new.gif">',	'sign'	=> 'My Sign', );
 $line1 += ['https://www.flickr.com/k7/sets' =>"_Travel Snaps", 'https://blog.kesavan.info'=>"_Blog"];
 
 $line2 = array(
-	"thanks"	=>"Thanks to..",	"materials"	=>"Open Materials","qns"	=>"interview qns",	
-	"script"	=>"scripts to look",	"regex"		=>"RegEx me!",	   "tricks"	=>"Web Dev tips<img src='images/new.gif'> ",
-	"tamil-type"	=>"Type தமிழ் ",		"books.pl"	=>"eBooks Collection",		);		
+	"thanks"	=>"Thanks to..",	"materials"	=>"Open Materials",        "qns"	=>"interview qns",	
+	"script"	=>"scripts to look",	"books.pl"	=>"eBooks Collection",	   "tricks"	=>"Web Dev tips<img src='images/new.gif'> ",);		
 
 $line3 = array(
 	"life"	=>"Looking for a girl",		"toon"	=>"A day - a cartoon","promo"	=>"Shameless self promo",
-	"random"=>"Generate random values",	"goog"  =>"Goodbye GMail",		"kural" =>'Thirukkural - #PIEM <img src="images/new.gif">',);
+	"goog"  =>"Goodbye GMail",		);
 	//"muzic"	=>"Muzic Time"
 
-$tools = ["ip"		=> "What's your IP",	"image-resize"	=> "Resize your image",	"tor-status"	=> "Dark status from Tor", "random" => "Random token gen"];
+
+$tamil = ["tamil-type"	=>"Type தமிழ் ",        "pythagoras"=> "Sorry, pythagoras! ", "kural" =>'Thirukkural - #PIEM <img src="images/new.gif">',];
+
+$tools = ["ip"		=> "What's your IP",	"image-resize"	=> "Resize your image",	"tor-status"	=> "Dark status from Tor", "random" => "Random token gen",
+        "regex"		=>"RegEx me!",      ];
 
 $hl    = ["wed-lock" => "_Wed Lock - 2014",	"invite" => "_Wedlock Invitation",
 	"thulasi" => "Thulasi Kesavan<img src='images/new.gif'>","kundavai"=>"Kundavai Kesavan<img src='images/new.gif'>" ];
@@ -48,6 +51,7 @@ function generateLinks( $links, $hl=0, $title=""){
 	echo	generateLinks($line1);
 	echo	generateLinks($line2);
 	echo	generateLinks($line3);
+        echo	generateLinks($tamil,0,'தமிழ்');
 	echo 	generateLinks($tools,0,"Tools");
 	echo	generateLinks($hl,1, "Double trouble");
 	?>	
