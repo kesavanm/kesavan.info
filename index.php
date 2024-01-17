@@ -11,7 +11,7 @@
  
 <?php
 include('head.php');
-echo "This is the personal web site of Kesavan Muthuvel";
+echo "<strong>This is the personal web site of Kesavan Muthuvel </strong>";
 //phpinfo();
 ?>
 <p>
@@ -105,9 +105,10 @@ For those interested in following my updates, you can find me on the following s
 
 <!-- Here begins column 3: misc -->
 <div class="column3">
-<? //require_once('twt.php');
-?>
+	<?php
+		include_once('x.com');
 
+	?>
 </div>
 
 <div class="rest">
@@ -120,10 +121,4 @@ Wanna see my resume? <a href="resume.php">here</a> it is.
 include('tail.php');
 ?>
 </div>
-
-
-
-
-
-
 

@@ -194,13 +194,13 @@ Portal and Trading Partner Portal(TPP).
 
 
 4) Mini projects
-   ClickJobs - Integrated Google Ads with the portal.
-   PropertyExchanges for Jemi Housing Pvt Ltd. - Real Estate market
-   JustCall for AVNI | YellowPage version of JustCall ,a 24*7 service.
-   ST Cargo & Travels – Cargo/Logistics Management application development
+  • ClickJobs - Integrated Google Ads with the portal.
+  • PropertyExchanges for Jemi Housing Pvt Ltd. - Real Estate market
+  • JustCall for AVNI | YellowPage version of JustCall ,a 24*7 service.
+  • ST Cargo & Travels – Cargo/Logistics Management application development
 
 (Interesting) EDUCATION & PERSONAL INFO
-
+=======================================
 • Even though I accumulated significant arrears in each semester, I successfully completed my
 Bachelor of Technology in Information Technology from ANNA University in 2006
 • Languages Known - Apart from above mentioned langs that computer familiar with, I’m good
@@ -216,4 +216,4 @@ SHAMELESS SELF PROMOTION
 BTW,If you feel bored and wanna look at my mirror cracking snaps,point your
 browser to http://www.flickr.com/photos/k7/sets/
 
-r20140309 <EOD>
+r20231229<EOD>

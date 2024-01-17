@@ -14,8 +14,7 @@
 
 <h3>Royal Enfield Thunderbird Twinspark Black Magic </h3>
 <p>
-	<embed width="100%" height="100%" name="plugin" src="images/thunderbird-twinspark.swf" 
-		type="application/x-shockwave-flash">	
+	<img src="images/thunderbird-twinspark.png">
 <p>
 <br>
 	<? include('tail.php'); ?>
