@@ -36,22 +36,23 @@ mb_internal_encoding('UTF-8');
 
 
 function dbconn(){
-        $ln = mysql_connect(MYSQLHOST,MYSQLUSER,MYSQLPSWD) or die ("Conn err:".mysql_error());
-        mysql_select_db(MYSQLDB,$ln) or die ("DB err:".mysql_error());
+        $ln = mysqli_connect(MYSQLHOST,MYSQLUSER,MYSQLPSWD) or die ("Conn err:".mysqli_error());
+        mysqli_select_db($ln,MYSQLDB) or die ("DB err:".mysqli_error($ln));
         return $ln;
 }
 function gen_json(){
+	$ln = dbconn();
 	$sql = "SELECT REPLACE(startDate,'-',',')startDate,REPLACE(endDate,'-',',')endDate,headline,etext `text`, media,credit,caption FROM `km_history`";
-	$rs = mysql_query($sql,dbconn()) or die ("Qry err:$sql".mysql_error());
+	$rs = mysqli_query($ln,$sql) or die ("Qry err:$sql".mysqli_error($ln));
 
 	$rows = array();
-	if(mysql_num_rows($rs)){
-		while($row=mysql_fetch_assoc($rs)){
+	if(mysqli_num_rows($rs)){
+		while($row=mysqli_fetch_assoc($rs)){
 			$row['asset'] = array('media'=>$row['media'] , 'credit'=>$row['credit'],'caption'=>$row['caption']);
 			unset($row['media'],$row['credit'],$row['caption']);
 			$rows[] = $row;
 		}
-		mysql_free_result($rs);
+		mysqli_free_result($rs);
 	}
 	return	json_encode($rows);
 }
