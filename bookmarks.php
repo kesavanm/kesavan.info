@@ -58,9 +58,9 @@ $bookmarks = array(
 ?>
 <p> Here goes all my bookmarks. <p>
 
-<div class="column1"> <? echo bookmark('social'); echo bookmark('smile'); ?> </div> 
-<div class="column2"> <? echo bookmark('misc'); echo bookmark('astronomy'); ?> </div>
-<div class="column3"> <? echo bookmark('trip/travel'); ?></div>
+<div class="column1"> <?php echo bookmark('social'); echo bookmark('smile'); ?> </div>
+<div class="column2"> <?php echo bookmark('misc'); echo bookmark('astronomy'); ?> </div>
+<div class="column3"> <?php echo bookmark('trip/travel'); ?></div>
 <div class="rest">    
 <hr> <h3>flips </h3>
 
@@ -68,7 +68,7 @@ $bookmarks = array(
 	href="https://flipboard.com/@kesavan2000in/kesavan-muthuvel%27s-open-1h2a4tnjy">View my Flipboard Magazine.</a>
 <script src="https://cdn.flipboard.com/web/buttons/js/flbuttons.min.js" type="text/javascript"></script>
 
-<? include('tail.php');?> </div>
+<?php include('tail.php');?> </div>
 
 <?php
 function bookmark($type){
