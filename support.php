@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Kesavan Muthuvel's Personal tools</title>
-    <link rel="shortcut icon" href="kesavan.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favico/1879445_pkT_11.ico" type="image/x-icon">
 
 <link rel="icon" href="k7.png">
   </head>
@@ -83,6 +83,9 @@ $tools  = array (
 		'Security-in-a-Box' => "Security in a Box - Digital security tools and tactics #####
 					https://securityinabox.org/en/ #####
 					securityinabox.png",
+		'FFMPEG'	=>	"Record, convert. Stream audio & video, FFMPEG! #####
+					https://ffmpeg.org#####
+					ffmpeg.png"					
 
 
 		/**************************************************************************************
@@ -108,22 +111,6 @@ foreach($tools as $key=>$value){
 	echo " <a target='_blank' href=\"$uri\"><img src=\"$src\" title=\"$key - $alt\" alt=\"$alt\"/></a> \n";
 }
 echo    "        </div>";
-
-
-echo <<< "HARDCODED"
-
-
-<p>
-
-<a href="http://www.getgnulinux.org/" title="Get GNU/Linux - an alternative to Windows; free as in beer and speech">
-<img src="https://getgnulinux.org/images/slides/GNU_Tux.svg" alt="Get GNU/Linux" width="125" height="50" border="0"/></a>
-
-<a href="http://www.upgradefromwindows8.com"><img src="images/logos/modified/closewin.png" alt="Close Windows, Open Doors"/></a> 
-
-
-
-
-HARDCODED;
 
 include('tail.php');
 
