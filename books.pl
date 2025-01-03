@@ -35,8 +35,8 @@ print '	<table align="left" class="display" id="books" cellpadding="0" cellspaci
 					<th> Book </th> <th> Type</th> <th> Size </th> <th>Size(Readable)</th><th> Last Modified </th> 
 				</tr> </thead>';
 my @books_loc = ( 
-"/home/kesavan/apps/nextcloud/data/kesavan/files/study/" ,
-"/home/kesavan/apps/nextcloud/data/kesavan/files/books2/"
+"/home/kesavan/apps/nextcloud99/data/kesavan/files/study/" ,
+"/home/kesavan/apps/nextcloud99/data/kesavan/files/books2/",
 );
 
 my $conflicts = qr/CONFLICT/i; # Replace with your desired pattern using regular expression
@@ -49,7 +49,7 @@ sub genTable {
 	my $dir = shift ;
 	my $return = '';
 
-	my %href  = ( 'study' => 'files', 'books2' => 'epub');
+	my %href  = ('study' => 'file9', 'books2' => 'epub9' );
 	my $final_href = $href{basename($dir)};
 
 	opendir(DIR, $dir) or die $!;

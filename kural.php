@@ -63,7 +63,7 @@ $search = $_REQUEST['தேடல்']??$random_search;
 ?>
 <hr>
 <form action="" method="POST">
-  <h1>குறள் தேடல்</h1> 
+  <h1>குறள் தேடல்</h1> <h2> Thanks <a href='https://github.com/kesavanm/kural-piem'>kural-piem</a> </h2>
   <label for="name">வார்த்தை(1 to 24 characters):</label>
 
   <input type="text" id="name" name="தேடல்" value="<?=$search?>" required

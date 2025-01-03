@@ -15,6 +15,7 @@ $line3 = array(
 	"goog"  =>"Goodbye GMail",		);
 	//"muzic"	=>"Muzic Time"
 
+$blog = ["https://blog.kesavan.info" => "_(we)blogs from Kesavan", "https://blog2.kesavan.info" => "_Fallback blogs", "https://blog2.kesavan.info/grav" => "_Grav, quick logs"];
 
 $tamil = ["tamil-type"	=>"Type தமிழ் ",        "pythagoras"=> "Sorry, pythagoras! ", "kural" =>'Thirukkural - #PIEM <img src="images/new.gif">',];
 
@@ -53,6 +54,7 @@ function generateLinks( $links, $hl=0, $title=""){
 	echo	generateLinks($line3);
         echo	generateLinks($tamil,0,'தமிழ்');
 	echo 	generateLinks($tools,0,"Tools");
+	echo 	generateLinks($blog,0,"Blogs");
 	echo	generateLinks($hl,1, "Double trouble");
 	?>	
 </center>
