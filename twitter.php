@@ -41,36 +41,65 @@ function getTwitterUserId($bearerToken) {
 function getUserTweets($userId, $bearerToken) {
     if (!$userId) return false;
     
-    $tweetsEndpoint = "https://api.twitter.com/2/users/{$userId}/tweets";
-    $params = array(
-        'max_results' => 10,
-        'tweet.fields' => 'created_at,text,id',
-        'expansions' => 'author_id',
-        'user.fields' => 'name,username'
-    );
-    
     try {
+        $tweetsEndpoint = "https://api.twitter.com/2/users/{$userId}/tweets";
+        $params = array(
+            'max_results' => 10,
+            'tweet.fields' => 'created_at,text,id',
+            'expansions' => 'author_id',
+            'user.fields' => 'name,username'
+        );
+        
         $ch = curl_init();
+        
         $headers = array(
             'Authorization: Bearer ' . $bearerToken,
         );
         
-        curl_setopt($ch, CURLOPT_URL, $tweetsEndpoint . '?' . http_build_query($params));
+        $queryString = http_build_query($params);
+        $fullUrl = $tweetsEndpoint . '?' . $queryString;
+        
+        curl_setopt($ch, CURLOPT_URL, $fullUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         
         $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $err = curl_error($ch);
         curl_close($ch);
         
-        if ($err) {
-            error_log('Error fetching tweets: ' . $err);
+        // Check for curl errors or non-200 HTTP status
+        if ($err || $httpCode !== 200) {
+            error_log('Error fetching tweets: ' . $err . ' (HTTP Code: ' . $httpCode . ')');
+            
+            // Attempt to retrieve cached tweets
+            $cachedData = getCache();
+            if ($cachedData) {
+                error_log('Falling back to cached tweets');
+                return $cachedData;
+            }
+            
             return false;
         }
         
-        return json_decode($response, true);
+        $result = json_decode($response, true);
+        
+        // Cache the fetched tweets
+        if (!empty($result['data'])) {
+            setCache($result);
+        }
+        
+        return $result;
     } catch (Exception $e) {
-        error_log('Error fetching tweets: ' . $e->getMessage());
+        error_log('Exception in getUserTweets: ' . $e->getMessage());
+        
+        // Attempt to retrieve cached tweets on exception
+        $cachedData = getCache();
+        if ($cachedData) {
+            error_log('Falling back to cached tweets due to exception');
+            return $cachedData;
+        }
+        
         return false;
     }
 }

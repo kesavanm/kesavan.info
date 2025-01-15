@@ -106,7 +106,7 @@ For those interested in following my updates, you can find me on the following s
 <!-- Here begins column 3: misc -->
 <div class="column3">
 	<?php
-		include_once('x.com');
+		include_once('x.htm');
 
 	?>
 </div>
