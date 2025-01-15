@@ -8,7 +8,9 @@ $line1 += ['https://www.flickr.com/k7/sets' =>"_Travel Snaps", 'https://blog.kes
 
 $line2 = array(
 	"thanks"	=>"Thanks to..",	"materials"	=>"Open Materials",        "qns"	=>"interview qns",	
-	"script"	=>"scripts to look",	"books.pl"	=>"eBooks Collection",	   "tricks"	=>"Web Dev tips<img src='images/new.gif'> ",);		
+	"script"	=>"scripts to look",	"books.pl"	=>"eBooks Collection",	   "tricks"	=>"Web Dev tips<img src='images/new.gif'> ",
+	"https://github.com/kesavanm" => "Fork my (GitHub) projects!"
+	);		
 
 $line3 = array(
 	"life"	=>"Looking for a girl",		"toon"	=>"A day - a cartoon","promo"	=>"Shameless self promo",
